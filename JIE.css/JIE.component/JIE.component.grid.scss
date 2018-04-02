@@ -1,0 +1,12 @@
+﻿.grid {
+    >div {
+        >div {
+            display: inline-block;
+            border: 1px solid black;
+
+            .text, .btn {
+                display: inline-block;
+            }
+        }
+    }
+}

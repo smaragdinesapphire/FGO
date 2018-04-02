@@ -1,0 +1,6 @@
+﻿.grid > div > div {
+  display: inline-block;
+  border: 1px solid black; }
+  .grid > div > div .text, .grid > div > div .btn {
+    display: inline-block; }
+
