@@ -388,7 +388,7 @@ FGO.normal.main = function () {
         var expansion = result_node.querySelectorAll(".unfold_btn");
         for (var i = 0, i_max = expansion.length; i < i_max; i += 1) {
             var grid = expansion[i].parentNode.parentNode.querySelector(".grid_area");
-            grid.className = "unfold";
+            grid.className = "grid_area unfold";
             expansion[i].value = "0";
             expansion[i].innerText = "-";
             expansion[i].onclick = function () {
