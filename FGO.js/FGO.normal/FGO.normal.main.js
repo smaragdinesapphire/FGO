@@ -7,19 +7,54 @@ FGO.normal.main = function () {
 
     //資料處理
     var quest_data_manager = FGO.normal.quest_data_manager();
+    var all_quest_list = quest_data_manager.get_all_quest_list();
     var schedule_list = quest_data_manager.get_schedule();
     var all_item_list = quest_data_manager.get_item_list();
+    var item2quest_list = quest_data_manager.get_item2quest_list();
 
     //節點處理
-    var node = document.querySelector("#user_input .chess");
-    var user_chess_list = create_chess_grid(document.querySelector("#user_input .chess"));   //棋子與餅乾
-    var user_item_list = create_item_grid(document.querySelector("#user_input .item"));      //其他素材(銅銀金)
-    var schedule_node = create_schedule_options(document.querySelector("#user_input .schedule"), schedule_list);                //進度
+    var user_input_node = document.querySelector("#user_input");
+    var user_chess_list = create_chess_grid(user_input_node.querySelector(".chess .grid_area"));   //棋子與餅乾
+    var user_item_list = create_item_grid(user_input_node.querySelector(".item .grid_area"));      //其他素材(銅銀金)
+    var schedule_node = create_schedule_options(user_input_node.querySelector(".schedule"), schedule_list);                //進度
     var event_node = document.querySelector("#user_input .event");
-    var result_quest = document.querySelector("#result .quest .grid_area");
-    var result_item = document.querySelector("#result .item .grid_area");
-    var result_AP = document.querySelector("#result .AP_result");
 
+    var result_node = document.querySelector("#result");
+    result_node.classList.add("hide");
+    var result_quest_node = result_node.querySelector(".quest .grid_area");
+    //var result_item_node = result_node.querySelector(".item .grid_area");
+    var result_item_node = result_node.querySelector(".item");
+    var result_AP_node = result_node.querySelector(".AP_result");
+    //var not_enough_node = document.querySelector("#result .not_enough .grid_area");
+    var not_enough_table_node = NewObj("table", "grid_area");
+    var not_enough_node = NewObj("div", "not_enough", NewObj("span", "title_2", "無法獲得物品數"));
+        not_enough_node.appendChild(not_enough_table_node);
+    var has_not_enough_table = false;
+
+    var item_dialog = JIE.component.dialog.factory("simple");
+    item_dialog.hide();
+
+    var result_item_table = null;
+
+    var expansion = user_input_node.querySelectorAll(".unfold_btn");
+    for (var i = 0, i_max = expansion.length; i < i_max; i += 1) {
+        expansion[i].onclick = function () {
+            var grid = this.parentNode.parentNode.querySelector(".grid_area");
+            grid.classList.toggle("unfold");
+            grid.classList.toggle("fold");
+            if (this.value === "1") {
+                this.value = "0";
+                this.innerText = "-";
+            } else {
+                this.value = "1";
+                this.innerText = "+";
+            }
+        };
+    }
+
+    var processing_dialog = new FGO.ui.processing_dialog();
+    //processing_dialog.render(document.body);
+    //processing_dialog.hide();
     //test
     if (JIE.debug) {
         var count = 0;
@@ -35,7 +70,7 @@ FGO.normal.main = function () {
         user_data.event = {};
         user_data.schedule = null;
 
-        var schedule_default = schedule_list[schedule_list.length - 1];
+    var schedule_default = schedule_list[schedule_list.length - 1];
     schedule_node.value = schedule_default;
 
     var reset_btn = document.querySelector("#user_input .reset");
@@ -45,9 +80,19 @@ FGO.normal.main = function () {
         var useful = get_data();
         var ans = null;
         if (!useful) return;
-        minimazed_method.set_data(user_data);
-        ans = minimazed_method.get_minimization();
-        create_result_grid(ans);
+        //processing_dialog.show();
+        processing_dialog.render(document.body);
+        setTimeout(function () {
+            minimazed_method.set_data(user_data);
+            ans = minimazed_method.get_minimization();
+            create_result_grid(ans);
+            result_node.classList.remove("hide");
+            setTimeout(function () {
+                processing_dialog.unrender(document.body);
+                //processing_dialog.hide();
+                window.scrollTo(0, result_node.scrollHeight);
+            }, 2000);
+        }, 500);
     };
 
     var minimazed_method = FGO.normal.minimized_method();
@@ -105,37 +150,43 @@ FGO.normal.main = function () {
      * param {Object} 目標節點
      */
     function create_chess_grid(node) {
-        var table = NewObj("table", "grid");
-
-        var input_list1 = all_item_list.chess_and_stone.class_list,
-            input_list2 = all_item_list.chess_and_stone.name_list;
-        var i, i_max, j, j_max,
-            tr, td, input;
-        var input_data = {};
-
-        tr = NewObj("tr", "tr");
-        for (i = 0; i < 5; i++) {
+        
+        var input_list1 = all_item_list.chess_and_stone.name_list,
+            input_list2 = all_item_list.chess_and_stone.class_list;
+        
+        var i, i_max = input_list1.length, j, j_max = input_list2.length,
+            tr, td, input, question;
+        var table, input_data = {};
+        for (i = 0; i < i_max; i += 1) {
+            table = NewObj("table", "grid");
+            tr = NewObj("tr", "tr");
             tr.appendChild(NewObj("td", "header", "名稱"));
             tr.appendChild(NewObj("td", "header", "數量"));
-        }
-        table.appendChild(tr);
-
-        for (i = 0, i_max = input_list1.length; i < i_max; i++) {
-            tr = NewObj("tr", "tr");
-            for (j = 0, j_max = input_list2.length; j < j_max; j++) {
-
-                input = num_input();
-
-                tr.appendChild(NewObj("td", "", input_list1[i] + input_list2[j]));
-                td = NewObj("td","",input);
-                tr.appendChild(td);
-
-                input_data[input_list1[i] + input_list2[j]] = input;
-            }
             table.appendChild(tr);
+
+            for (j = 0; j < j_max; j += 1) {
+                tr = NewObj("tr", "tr");
+                input = num_input();
+                td = NewObj("td", "", NewObj("span", "", input_list2[j] + input_list1[i]));
+                question = NewObj("div", "question", "?");
+                question.value = input_list2[j] + input_list1[i];
+                td.appendChild(question);
+                tr.appendChild(td);
+                tr.appendChild(NewObj("td", "", input));
+
+                input_data[input_list2[j] + input_list1[i]] = input;
+                table.appendChild(tr);
+            }
+            node.appendChild(table);
         }
 
-        node.appendChild(table);
+        node.addEventListener("click", function () {
+            var target = event.target;
+            if (target.classList.contains("question")) {
+                item2quest_dialog(target.value);
+            }
+        });
+
         return input_data;
     }
     function create_item_grid(node) {
@@ -145,21 +196,21 @@ FGO.normal.main = function () {
         var tr, td;
         var copper_list, silver_list, gold_list, all_list = {};
 
-        var copper_table = NewObj("table", "copper");
+        var copper_table = NewObj("table", "copper grid");
         tr = NewObj("tr");
         tr.appendChild(NewObj("td", "header", "銅素材名稱"));
         tr.appendChild(NewObj("td", "header", "數量"));
         copper_table.appendChild(tr);
         copper_list = create_item(copper_table, copper);
         
-        var silver_table = NewObj("table", "silver");
+        var silver_table = NewObj("table", "silver grid");
         tr = NewObj("tr");
         tr.appendChild(NewObj("td", "header", "銀素材名稱"));
         tr.appendChild(NewObj("td", "header", "數量"));
         silver_table.appendChild(tr);
         silver_list = create_item(silver_table, silver);
 
-        var gold_table = NewObj("table", "gold");
+        var gold_table = NewObj("table", "gold grid");
         tr = NewObj("tr");
         tr.appendChild(NewObj("td", "header", "金素材名稱"));
         tr.appendChild(NewObj("td", "header", "數量"));
@@ -170,22 +221,34 @@ FGO.normal.main = function () {
         node.appendChild(silver_table);
         node.appendChild(gold_table);
 
-        extend(all_list, copper_list);
-        extend(all_list, silver_list);
-        extend(all_list, gold_list);
+        JIE.base.marge(all_list, copper_list);
+        JIE.base.marge(all_list, silver_list);
+        JIE.base.marge(all_list, gold_list);
+
+        node.addEventListener("click", function () {
+            var target = event.target;
+            if (target.classList.contains("question")) {
+                item2quest_dialog(target.value);
+            }
+        });
 
         return all_list;
 
         function create_item(node, arr) {
-            var i, i_max, tr, td, input;
+            var i, i_max, tr, td, input, question;
             var input_list = {};
             for (i = 0, i_max = arr.length; i < i_max; i++) {
                 tr = NewObj("tr");
-                td = NewObj("td", "", arr[i]);
+                td = NewObj("td", "", NewObj("span", "", arr[i]));
+                question = NewObj("div", "question", "?");
+                question.value = arr[i];
+                td.appendChild(question);
+
                 input = num_input();
 
                 tr.appendChild(td);
-                tr.appendChild(input);
+                tr.appendChild(NewObj("td", "", input));
+
                 node.appendChild(tr);
 
                 input_list[arr[i]] = input;
@@ -226,26 +289,40 @@ FGO.normal.main = function () {
     }
     function create_result_grid(data) {
         //remove odd grid
-        while (result_quest.firstChild) {
-            result_quest.removeChild(result_quest.firstChild);
+        while (result_quest_node.firstChild) {
+            result_quest_node.removeChild(result_quest_node.firstChild);
         }
-        while (result_item.firstChild) {
-            result_item.removeChild(result_item.firstChild);
+        while (result_item_node.firstChild) {
+            result_item_node.removeChild(result_item_node.firstChild);
         }
+
+        //if (data.no_support.length) {
+        //    while (not_enough_table_node.firstChild) {
+        //        not_enough_table_node.removeChild(not_enough_table_node.firstChild);
+        //    }
+        //} else if (has_not_enough_table) {
+        //    has_not_enough_table = false;
+        //    result_node.removeChild(not_enough_node);
+        //}
+
+        result.classList.remove("hide");
 
         //AP
-        result_AP.innerText = data.AP;
+        result_AP_node.innerText = data.AP;
 
         //quest
+        var table = NewObj("table", "grid");
         var header = NewObj("tr");
-        header.appendChild(NewObj("td", "header", "任務種類"));
-        header.appendChild(NewObj("td", "header", "任務區域"));
-        header.appendChild(NewObj("td", "header", "任務副本"));
+        header.appendChild(NewObj("td", "header", "種類"));
+        header.appendChild(NewObj("td", "header", "區域"));
+        header.appendChild(NewObj("td", "header", "副本"));
         header.appendChild(NewObj("td", "header", "次數"));
-        result_quest.appendChild(header);
-        
-        var i, j, k, tr, td;
-        for (i in data.quest_count_list) {
+        result_quest_node.appendChild(table);
+        table.appendChild(header);
+        var h, i, j, k, tr, td;
+        var sequence = ["每日任務"].concat(schedule_list);
+        for (h in sequence) {
+            i = sequence[h];
             for (j in data.quest_count_list[i]) {
                 for (k in data.quest_count_list[i][j]) {
                     if (data.quest_count_list[i][j][k] === 0) continue;
@@ -254,22 +331,110 @@ FGO.normal.main = function () {
                     tr.appendChild(NewObj("td", "", j));
                     tr.appendChild(NewObj("td", "", k));
                     tr.appendChild(NewObj("td", "", data.quest_count_list[i][j][k]));
-                    result_quest.appendChild(tr);
+                    table.appendChild(tr);
                 }
             }
         }
 
-        //item
-        header = NewObj("tr");
-        header.appendChild(NewObj("td", "header", "名稱"));
-        header.appendChild(NewObj("td", "header", "數量"));
-        result_item.appendChild(header);
-        for (i in data.item_list) {
-            tr = NewObj("tr");
-            tr.appendChild(NewObj("td", "", i));
-            tr.appendChild(NewObj("td", "", data.item_list[i]));
-            result_item.appendChild(tr);
+        var text, i_max;
+        if (result_item_table === null) {
+            result_item_table = user_input_node.querySelector(".target_item").cloneNode(true);
+            //result_item_table.removeChild(result_item_table.querySelector(".title_2"));
         }
+        tr = result_item_table.querySelectorAll("tr");
+        for (i = 0, i_max = tr.length; i < i_max; i += 1) {
+            
+            td = tr[i].querySelectorAll("td");
+            if (td[0].classList.contains("header")) continue;
+            text = td[0].querySelector("span").innerText;
+
+            if (data.item_list[text]) {
+                if (user_data.target_item[text]) {
+                    td[0].classList.add("finish");
+                    td[0].classList.remove("no_enough");
+                    td[1].innerText = Math.round(data.item_list[text]*1000)/1000;
+                } else {
+                    td[1].innerText = Math.round(data.item_list[text] * 100) / 100;
+                }
+            } else {
+                if (user_data.target_item[text]) {
+                    td[0].classList.add("not_enough");
+                    td[0].classList.remove("finish");
+                    td[1].innerText = user_data.target_item[text] * -1;
+                } else {
+                    td[1].innerText = 0;
+                }
+            }
+        }
+        result_item_node.appendChild(result_item_table);
+
+        ////not enough
+        //if (data.no_support.length) {
+        //    has_not_enough_table = true;
+        //    header = NewObj("tr");
+        //    header.appendChild(NewObj("td", "header", "名稱"));
+        //    header.appendChild(NewObj("td", "header", "數量"));
+        //    not_enough_table_node.appendChild(header);
+        //    for (i in data.no_support.item_list) {
+        //        tr = NewObj("tr");
+        //        tr.appendChild(NewObj("td", "", i));
+        //        tr.appendChild(NewObj("td", "", data.no_support.item_list[i]));
+        //        not_enough_table_node.appendChild(tr);
+        //    }
+        //    result_node.appendChild(not_enough_node);
+        //}
+
+        var expansion = result_node.querySelectorAll(".unfold_btn");
+        for (var i = 0, i_max = expansion.length; i < i_max; i += 1) {
+            expansion[i].onclick = function () {
+                var grid = this.parentNode.parentNode.querySelector(".grid_area");
+                grid.classList.toggle("unfold");
+                grid.classList.toggle("fold");
+                if (this.value === "1") {
+                    this.value = "0";
+                    this.innerText = "-";
+                } else {
+                    this.value = "1";
+                    this.innerText = "+";
+                }
+            };
+        }
+        result_item_table.addEventListener("click", function () {
+            var target = event.target;
+            if (target.classList.contains("question")) {
+                item2quest_dialog(event.target.parentNode.querySelector("span").innerText);
+            }
+        });
+    }
+    function item2quest_dialog(key) {
+        var grid = NewObj("table", "grid");
+        var i, tr, td, quest, type;
+        tr = NewObj("tr");
+        tr.appendChild(NewObj("td", "header", "種類"));
+        tr.appendChild(NewObj("td", "header", "區域"));
+        tr.appendChild(NewObj("td", "header", "副本"));
+        tr.appendChild(NewObj("td", "header", "AP"));
+        tr.appendChild(NewObj("td", "header", "掉落率"));
+        tr.appendChild(NewObj("td", "header", "1個/AP"));
+        grid.appendChild(tr);
+
+        for (i in item2quest_list[key]) {
+            //item2quest_list[key][i]
+            quest = item2quest_list[key][i];
+            type = quest.type;
+            tr = NewObj("tr");
+            tr.appendChild(NewObj("td", "", type[0]));
+            tr.appendChild(NewObj("td", "", type[1]));
+            tr.appendChild(NewObj("td", "", type[2]));
+            tr.appendChild(NewObj("td", "", all_quest_list[type[0]][type[1]][type[2]].AP));
+            tr.appendChild(NewObj("td", "", Math.round(all_quest_list[type[0]][type[1]][type[2]].drop[key] * 1000) / 1000));
+            tr.appendChild(NewObj("td", "", Math.round(quest.CP*1000)/1000));
+            grid.appendChild(tr);
+        }
+
+        item_dialog.set_title(key);
+        item_dialog.set_contain(grid);
+        item_dialog.show();
     }
 };
 

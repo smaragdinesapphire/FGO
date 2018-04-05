@@ -13,6 +13,8 @@
 
     var default_ans_ap = 0; //test
 
+    var PSO_again = 3;
+
     function get_optimization() {
         reset_data();
         get_all_quest_list();
@@ -30,7 +32,11 @@
         final_ans = {
             quest_count_list: {},
             AP: null,
-            item_list: {}
+            item_list: {},
+            no_support: {
+                item_list: {},
+                length: 0
+            }
         };
         all_quest_list = {};
     }
@@ -125,6 +131,13 @@
     function get_default_ans() {
         var item, item_count, quest, type, time;
         for (item in useful_item2quest_list) {
+            //無該道具掉落
+            if (!useful_item2quest_list[item].length) {
+                final_ans.no_support.item_list[item] = user_data.target_item[item];
+                final_ans.no_support.length += 1;
+                continue;
+            }
+
             item_count = user_data.target_item[item];
             type = useful_item2quest_list[item][0].type;
             quest = all_quest_list[type[0]][type[1]][type[2]];
@@ -146,15 +159,23 @@
     }
 
     function optimize() {
+        var iter, best_ans;
         get_default_ans();
         if (optimized_quest_list.length !== 0) {
             //PSO part
             var team, PSO_data, PSO, ans_obj, PSO_ans, quest_count_obj;
             for (team in optimized_quest_list) {
                 PSO_data = create_PSO_data(optimized_quest_list[team]);
-                PSO = new JIE.optimization.PSO(PSO_data);
-                PSO_ans = PSO.play();
-                quest_count_obj = PSO_ans_parser(PSO_ans, PSO_data.quest_list);
+                best_ans = null;
+                for (iter = 0; iter < PSO_again; iter += 1) {
+                    PSO = new JIE.optimization.PSO(PSO_data);
+                    PSO_ans = PSO.play();
+                    if (best_ans === null) best_ans = PSO_ans;
+                    else if (best_ans.fit > PSO_ans.fit) best_ans = PSO_ans;
+                }
+                
+                //quest_count_obj = PSO_ans_parser(PSO_ans, PSO_data.quest_list);
+                quest_count_obj = PSO_ans_parser(best_ans, PSO_data.quest_list);
                 JIE.base.margeDeep(final_ans.quest_count_list, quest_count_obj);
             }
 
@@ -176,6 +197,7 @@
             var item, diff, time, type, quest, count;
             for (item in user_data.target_item) {
                 if (final_ans.item_list[item] > user_data.target_item[item]) continue;
+                if (!useful_item2quest_list[item].length) continue;
                 diff = user_data.target_item[item] - (final_ans.item_list[item] || 0);
                 type = useful_item2quest_list[item][0].type;
                 quest = all_quest_list[type[0]][type[1]][type[2]];
@@ -271,6 +293,8 @@
 
             for (item in user_data.target_item) {
                 if ((item_list[item] || 0) < user_data.target_item[item]) {
+                    //沒關卡有該道具
+                    if (!useful_item2quest_list[item].length) continue;
                     diff = user_data.target_item[item] - item_list[item];
                     type = useful_item2quest_list[item][0].type;
                     quest = all_quest_list[type[0]][type[1]][type[2]];
@@ -280,8 +304,6 @@
                             ans[i] += Math.ceil(diff / quest.drop[item]);
                         }
                     }
-                    
-                    
                 }
             }
 
@@ -348,6 +370,7 @@
             for (j in quest_count_list[i]) {
                 for (k in quest_count_list[i][j]) {
                     time = quest_count_list[i][j][k];
+                    if (!time) continue;
                     quest = all_quest_list[i][j][k];
                     for (item in quest.drop) {
                         if (item_list[item] === undefined) item_list[item] = 0;

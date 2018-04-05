@@ -28,5 +28,14 @@ JIE.component.control_base.prototype = {
             }
         }
     },
+    add_class_name: function (name) {
+        this._myself.classList.add(name);
+    },
+    remove_class_name: function (name) {
+        this._myself.classList.remove(name);
+    },
+    change_class_name: function (name) {
+        this._myself.className = name;
+    },
     constructor: JIE.component.control_base.prototype.constructor
 };
