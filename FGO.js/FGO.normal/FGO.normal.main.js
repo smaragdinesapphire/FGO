@@ -32,6 +32,7 @@ FGO.normal.main = function () {
     var has_not_enough_table = false;
 
     var item_dialog = JIE.component.dialog.factory("simple");
+    item_dialog.render(document.body);
     item_dialog.hide();
 
     var result_item_table = null;
@@ -386,6 +387,10 @@ FGO.normal.main = function () {
 
         var expansion = result_node.querySelectorAll(".unfold_btn");
         for (var i = 0, i_max = expansion.length; i < i_max; i += 1) {
+            var grid = expansion[i].parentNode.parentNode.querySelector(".grid_area");
+            grid.className = "unfold";
+            expansion[i].value = "0";
+            expansion[i].innerText = "-";
             expansion[i].onclick = function () {
                 var grid = this.parentNode.parentNode.querySelector(".grid_area");
                 grid.classList.toggle("unfold");

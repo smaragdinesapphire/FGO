@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="JIE.js/Jie.js"></script>
+    <script src="JIE.js/JIE.base.js"></script>
+    <script src="JIE.js/JIE.event.js"></script>
+    <script src="JIE.js/JIE.component/JIE.component.control_base.js"></script>
+    <script src="JIE.js/JIE.component/JIE.component.input.js"></script>
+
+    <script src="JIE.js/JIE.component/JIE.component.Grid.js"></script>
+    <script src="JIE.js/JIE.optimization/JIE.optimization.PSO.js"></script>
+</head>
+<body>
+    <script>
+        //var fn = function (a, b, c, d, e, f, g, h , i , j) {
+        //    var arr = [];
+        //    for (var i = 0; i < arguments.length; i++) arr.push(arguments[i]);
+
+        //    var result = arr.map(function (element) {
+        //        return Math.pow(element, 2) - 10 * Math.cos(2 * Math.PI * element);
+        //    });
+
+        //    var result = result.reduce(function(prev, element) {
+        //        return prev + element;
+        //    });
+        //    return 100 + result;
+        //};
+
+        var fn = function (a,b,c) {
+            var arr = [];
+            for (var i = 0; i < arguments.length; i++) arr.push(arguments[i]);
+
+            return (a + b + c) * 40;
+            
+        }
+
+        var bound = [];
+        for (var i = 0; i < 10; i++) {
+            bound.push({ min: 0, max: 1000 });
+        }
+        var advanced_search = function (p, fn, fixed_method, callback) {
+            var length = p.length, i, bound = [];
+            for (i = 0; i < length; i++) {
+                bound.push({ min: ((p[i] - 10 > 0) ? p[i] - 10 : 0), max: ((p[i] - 10 > 0) ? p[i] + 10 : 10) });
+            }
+
+            var PSO = new JIE.optimization.PSO({
+                fn: fn,
+                w: 0.7,				//上一代權重, 大多都設在 [0.0 , 1.5 ] 之間
+                c1: 2,				//全域權重, 多設 2, 其它也多設 [0,4]
+                c2: 2,				//區域權重, 多設 2, 其它也多設 [0,4]
+                v_max: [5, 5],		//各arg最高速 obj
+                p_max: 10,			//全體大小
+                iter_max: 50,		//迭代上限
+                bound: bound,		//參數邊界
+                fixed_method: fixed_method,	//修正方法
+                is_integer: true,
+                is_minimazation: true,
+                first_gen: null,		//初始族群,
+                //no_change_limit: 10
+            });
+
+            ans = PSO.play();
+
+            if (ans.fit < fn.apply(this, p)) {
+                //callback(ans.args);
+                return ans.args;
+            } else {
+                //callback(p);
+                return p;
+            }
+        }
+        //var fixed_method = function(p, bound) {
+        //    for (var index in p) {
+        //        if (p[index] > bound[index].max) {
+        //            p[index] = bound[index].max;
+        //        } else if (p[index] < bound[index].min) {
+        //            p[index] = bound[index].min;
+        //        }
+        //    }
+        //    return p;
+        //};
+
+        var fixed_method = function (p, bound) {
+            var reborn = p[1] * 106.2 + p[2] * 36;
+            var box = p[0] * 75.5 + p[2] * 45.2;
+            
+            for (var i = 0; i < 3; i++) if (p[i] < 0) p[i] = 0;
+
+            if (reborn < 2320) p[1] = Math.ceil((2320 - (p[2] * 36)) / 106.2);
+            if (box < 4000) p[0] = Math.ceil((4000 - (p[2] * 45.2)) / 75.5);
+
+            return p;
+        };
+
+        var PSO = new JIE.optimization.PSO({
+            fn: fn,
+		    w: 0.7,				//上一代權重, 大多都設在 [0.0 , 1.5 ] 之間
+		    c1: 2,				//全域權重, 多設 2, 其它也多設 [0,4]
+		    c2: 2,				//區域權重, 多設 2, 其它也多設 [0,4]
+		    v_max: [10, 10],		//各arg最高速 obj
+		    p_max: 50,			//全體大小
+		    iter_max: 200,		//迭代上限
+		    bound: bound,		//參數邊界
+		    fixed_method: fixed_method,	//修正方法
+		    is_integer: true,
+		    is_minimazation: true,
+		    first_gen: null,		//初始族群
+		    advanced_search: advanced_search,
+            //no_change_limit: 20
+        });
+        var ans = PSO.play();
+        //console.log(ans.args[0]);
+        //console.log(ans.args[1]);
+        //console.log(ans.fit);
+        //alert("a is " + ans.args[0] + ", b is " + ans.args[1] + ", fit is " + ans.fit + ".");
+        alert("fit is " + ans.fit + ".");
+    </script>
+</body>
+</html>
