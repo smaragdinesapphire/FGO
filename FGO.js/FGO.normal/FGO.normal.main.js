@@ -349,10 +349,12 @@ FGO.normal.main = function () {
             if (td[0].classList.contains("header")) continue;
             text = td[0].querySelector("span").innerText;
 
+            td[0].classList.remove("no_enough");
+            td[0].classList.remove("finish");
+
             if (data.item_list[text]) {
                 if (user_data.target_item[text]) {
                     td[0].classList.add("finish");
-                    td[0].classList.remove("no_enough");
                     td[1].innerText = Math.round(data.item_list[text]*1000)/1000;
                 } else {
                     td[1].innerText = Math.round(data.item_list[text] * 100) / 100;
@@ -360,7 +362,6 @@ FGO.normal.main = function () {
             } else {
                 if (user_data.target_item[text]) {
                     td[0].classList.add("not_enough");
-                    td[0].classList.remove("finish");
                     td[1].innerText = user_data.target_item[text] * -1;
                 } else {
                     td[1].innerText = 0;
