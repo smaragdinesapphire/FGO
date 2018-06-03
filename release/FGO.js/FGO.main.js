@@ -34,6 +34,13 @@
     });
     header_panel.render(body);
 
+    //var ad = NewObj('div', 'ad');
+    //var adsbygoogle;
+    //(adsbygoogle = window.adsbygoogle || []).push({
+    //    google_ad_client: "ca-pub-1430170730231634",
+    //    enable_page_level_ads: true
+    //});
+
     var user_panel = new FGO.panel.User_input_panel();
     user_panel.render(content);
     user_panel.onInfoClick.subscribe(function (type, args) {
