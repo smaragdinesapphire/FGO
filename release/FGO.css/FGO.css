@@ -53,3 +53,6 @@ input[type="checkbox"] {
 select {
   cursor: pointer; }
 
+.keyword {
+  display: none; }
+
