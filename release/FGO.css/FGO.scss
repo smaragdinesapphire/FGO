@@ -77,4 +77,7 @@ footer {
     padding: 8px 16px 8px 16px;
 
     border-top: 2px double #4c7bff;
+    > div {
+        display: inline-block;
+    }
 }
