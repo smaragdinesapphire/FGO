@@ -1,0 +1,61 @@
+﻿.user_input_panel, .result_panel {
+  border: 3px solid #395263;
+  border-radius: 5px;
+  margin-bottom: 10px; }
+  .user_input_panel > .container, .result_panel > .container {
+    margin-bottom: 0; }
+    .user_input_panel > .container > .content_area > .content, .result_panel > .container > .content_area > .content {
+      display: block; }
+  .user_input_panel > .container > .title, .result_panel > .container > .title {
+    width: 100%;
+    height: 52px;
+    background: -moz-linear-gradient(top, #436b87 0%, #5182a4 60%, rgba(91, 145, 183, 0.9) 100%);
+    background: -webkit-linear-gradient(top, #436b87 0%, #5182a4 60%, rgba(91, 145, 183, 0.9) 100%);
+    background: linear-gradient(to bottom, #436b87 0%, #5182a4 60%, rgba(91, 145, 183, 0.9) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#436b87', endColorstr='#e65b91b7',GradientType=0 );
+    border: none;
+    border-bottom: 2px solid #88c1e9;
+    border-radius: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+    .user_input_panel > .container > .title > div, .result_panel > .container > .title > div {
+      color: white;
+      margin-right: 5px;
+      font-size: 36px; }
+    .user_input_panel > .container > .title > .text, .result_panel > .container > .title > .text {
+      font-weight: bold;
+      font-style: italic;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+  .user_input_panel .other, .result_panel .other {
+    display: flex;
+    justify-content: space-around; }
+    .user_input_panel .other > div, .result_panel .other > div {
+      margin-left: 10px;
+      margin-right: 10px;
+      display: flex;
+      justify-content: space-around;
+      /*> div {
+				display: inline-block;
+			}*/ }
+      .user_input_panel .other > div > div, .result_panel .other > div > div {
+        margin-right: 10px; }
+      .user_input_panel .other > div > .title, .result_panel .other > div > .title {
+        font-weight: bold; }
+      .user_input_panel .other > div ul, .result_panel .other > div ul {
+        padding: 0;
+        margin: 0; }
+      .user_input_panel .other > div li, .result_panel .other > div li {
+        display: inline-block; }
+  .user_input_panel .btn_area, .result_panel .btn_area {
+    display: flex;
+    justify-content: center; }
+    .user_input_panel .btn_area > button, .result_panel .btn_area > button {
+      margin: 0 5px 0 5px;
+      width: 80px;
+      height: 30px; }
+  .user_input_panel select, .result_panel select {
+    cursor: pointer; }
+  .user_input_panel li, .result_panel li {
+    cursor: pointer; }
+

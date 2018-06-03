@@ -1,0 +1,55 @@
+﻿.item_grid {
+  /*display: flex;
+    justify-content: center;*/
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-bottom: 16px; }
+  .item_grid > .header {
+    font-weight: bold;
+    border-bottom: 1px solid black; }
+    .item_grid > .header.bronze {
+      background: #f3e2c7;
+      background: -moz-radial-gradient(center, ellipse cover, #f3e2c7 0%, #c19e67 99%);
+      background: -webkit-radial-gradient(center, ellipse cover, #f3e2c7 0%, #c19e67 99%);
+      background: radial-gradient(ellipse at center, #f3e2c7 0%, #c19e67 99%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#c19e67',GradientType=1 ); }
+    .item_grid > .header.silver {
+      background: #f6f8f9;
+      background: -moz-radial-gradient(center, ellipse cover, #f6f8f9 0%, #e5ebee 50%, #d7dee3 85%);
+      background: -webkit-radial-gradient(center, ellipse cover, #f6f8f9 0%, #e5ebee 50%, #d7dee3 85%);
+      background: radial-gradient(ellipse at center, #f6f8f9 0%, #e5ebee 50%, #d7dee3 85%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#d7dee3',GradientType=1 ); }
+    .item_grid > .header.golden {
+      background: #fefcea;
+      background: -moz-radial-gradient(center, ellipse cover, #fefcea 0%, #f1da36 100%);
+      background: -webkit-radial-gradient(center, ellipse cover, #fefcea 0%, #f1da36 100%);
+      background: radial-gradient(ellipse at center, #fefcea 0%, #f1da36 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=1 ); }
+    .item_grid > .header:hover {
+      box-shadow: none; }
+  .item_grid > div {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 11px 0 11px; }
+    .item_grid > div > div {
+      display: flex;
+      justify-content: center;
+      /*text-align: center;*/ }
+    .item_grid > div:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .item_grid .enough {
+    color: #028b02; }
+  .item_grid .not_enough {
+    color: #ac0000; }
+  .item_grid .is_not_target {
+    color: gray; }
+  .item_grid .c1, .item_grid .c2, .item_grid .c3 {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .item_grid button {
+    cursor: help; }
+  .item_grid input {
+    width: 65px; }
+

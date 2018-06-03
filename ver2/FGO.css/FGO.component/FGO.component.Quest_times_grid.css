@@ -1,0 +1,25 @@
+﻿.quest_times_grid {
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-bottom: 16px; }
+  .quest_times_grid > div {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 11px 0 11px; }
+    .quest_times_grid > div > div {
+      display: flex;
+      justify-content: center;
+      /*text-align: center;*/ }
+    .quest_times_grid > div:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .quest_times_grid > .header {
+    font-weight: bold;
+    border-bottom: 1px solid black; }
+    .quest_times_grid > .header:hover {
+      box-shadow: none; }
+  .quest_times_grid .c1, .quest_times_grid .c2, .quest_times_grid .c3 {
+    padding-left: 5px;
+    padding-right: 5px; }
+
