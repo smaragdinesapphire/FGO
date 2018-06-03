@@ -10,7 +10,8 @@
     minimize_manager.set_quest_manager(info_manager);
     var item2quest = info_manager.get_item2quest_list();
 
-    var body = document.body;
+    //var body = document.body;
+    var body = document.querySelector("#content");
     var content = NewObj("div", "main_content");
 
     var dialog_panel = FGO.component.factory('Dialog');

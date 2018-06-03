@@ -2596,302 +2596,302 @@
         "新宿": {
             "CN": "新宿",
             "TW": "新宿",
-            "EN": "　"
+            "EN": "Shinjuku"
         },
         "代々木二丁目": {
             "CN": "代代木二丁目",
             "TW": "代代木二丁目",
-            "EN": "　"
+            "EN": "Yoyogi 2-Choume"
         },
         "国道20号": {
             "CN": "国道20号",
             "TW": "國道20號",
-            "EN": "　"
+            "EN": "National Highway 20"
         },
         "新宿駅": {
             "CN": "新宿站",
             "TW": "新宿站",
-            "EN": "　"
+            "EN": "Shinjuku Station"
         },
         "新宿四丁目": {
             "CN": "新宿四丁目",
             "TW": "新宿四丁目",
-            "EN": "　"
+            "EN": "Shinjuku 4-Choume"
         },
         "歌舞伎町": {
             "CN": "歌舞伎町",
             "TW": "歌舞伎町",
-            "EN": "　"
+            "EN": "Kabukicho"
         },
         "バレルタワー": {
             "CN": "枪身塔",
             "TW": "槍身塔",
-            "EN": "　"
+            "EN": "Barrel Tower"
         },
         "パーティ会場": {
             "CN": "舞会会场",
             "TW": "舞會會場",
-            "EN": "　"
+            "EN": "Party Venue"
         },
         "タワー最上階": {
             "CN": "塔顶楼",
             "TW": "塔頂樓",
-            "EN": "　"
+            "EN": "Tower Top Floor"
         },
         "新宿御苑": {
             "CN": "新宿御苑",
             "TW": "新宿御苑",
-            "EN": "　"
+            "EN": "Shinjuku Imperial Garden"
         },
         "新宿二丁目": {
             "CN": "新宿二丁目",
             "TW": "新宿二丁目",
-            "EN": "　"
+            "EN": "Shinjuku 2-Choume"
         },
         "アガルタ": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Agartha"
         },
         "地底平原": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Subterranean Plain"
         },
         "野営地": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Campsite"
         },
         "川辺の町": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Riverside Town"
         },
         "桃源郷": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Peach Blossom Village"
         },
         "イース": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Ys"
         },
         "北の断崖": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Northern Cliff"
         },
         "不夜城": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Fuyajo"
         },
         "山裾の密林": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Jungle at the Foothills"
         },
         "竜宮城": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Dragon Imperial Palace"
         },
         "地底大河": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Subterranean River"
         },
         "エルドラド": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "El Dorado"
         },
         "大地の裂け目": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Fissure of the Land"
         },
         "下総国": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Shimousa"
         },
         "田んぼ": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Farm"
         },
         "里": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Village"
         },
         "庵": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Hermitage"
         },
         "城下町": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Castle Town"
         },
         "合戦場": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Battlefield"
         },
         "土気城": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Toke Castle"
         },
         "裏山": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Mountain Behind"
         },
         "荒川の原": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Arakawa Plains"
         },
         "セイレム": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Salem"
         },
         "静寂な森": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Silent Forest"
         },
         "カーター家": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Carter Residence"
         },
         "公会堂": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Public Chapel"
         },
         "波止場": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Wharf"
         },
         "ウェイトリー家": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Whateley Residence"
         },
         "郊外の屋敷": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Suburban Mansion"
         },
         "ガローの丘": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Gallows Hill"
         },
         "牧草地": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Grassland"
         },
         "空き家": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Empty Residence"
         },
         "隠れ家": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Refuge"
         },
         "留置所": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Jailhouse"
         },
         "アナスタシア": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Anastasia"
         },
         "アンカーポイント": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Anchor Point"
         },
         "ヤガ・スモレンスク": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Yaga Smolensk"
         },
         "風穴氷窟": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Ice Cavern"
         },
         "叛逆軍の砦": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Rebel Stronghold"
         },
         "ヤガ・スィチョーフカ": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Yaga Sychyovka"
         },
         "焼き払われた村": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Burnt-Down Village"
         },
         "ヤガ・ヴァジマ": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Yaga Vyazma"
         },
         "ヤガ・ジェメンスク": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Yaga Demensk"
         },
         "ヤガ・トゥーラ": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Yaga Tula"
         },
         "潰れた村": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Destroyed Village"
         },
         "ヤガ・モスクワ": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Yaga Moskva"
         },
         "大渓谷の砦": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Great Valley Fortress"
         },
         "大樹の根元": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Giant Tree Base"
         },
         "ヤガ・リャザン": {
             "CN": "　",
             "TW": "　",
-            "EN": "　"
+            "EN": "Yaga Ryazan\n"
         },
         "銅素材": {
             "CN": "铜素材",
@@ -3373,6 +3373,11 @@
             "TW": "重置",
             "EN": "Reset"
         },
+        "": {
+            "CN": "",
+            "TW": "",
+            "EN": ""
+        }
     };
     if (FGO.language_manager) {
         FGO.language_manager.set_data_base(language_data);
