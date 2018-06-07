@@ -3,13 +3,13 @@
  */
 self.addEventListener('message', function (e) {
     if (typeof JIE === 'undefined') {
-        importScripts("../JIE.js/JIE.js");
-        importScripts("../JIE.js/JIE.base.js");
-        importScripts("../JIE.js/JIE.math.js");
-        importScripts("../JIE.js/JIE.optimization/JIE.optimization.PSO.js");
-        importScripts("FGO.js");
-        importScripts("FGO.info_manager.js");
-        importScripts("FGO.info.js");
+        importScripts("/release/JIE.js/JIE.js");
+        importScripts("/release/JIE.js/JIE.base.js");
+        importScripts("/release/JIE.js/JIE.math.js");
+        importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js");
+        importScripts("/release/FGO.js/FGO.js");
+        importScripts("/release/FGO.js/FGO.info_manager.js");
+        importScripts("/release/FGO.js/FGO.info.js");
         //JIE.isDebug = true;
     }
 

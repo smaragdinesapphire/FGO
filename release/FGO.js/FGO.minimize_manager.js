@@ -27,7 +27,7 @@ FGO.minimize_manager = (function () {
 
     var PSO = [];
     for (var i = 0; i < times_per_PSO; i += 1) {
-        PSO[i] = new Worker('FGO.PSO.js');
+        PSO[i] = new Worker('release/FGO.js/FGO.PSO.js');
         PSO[i].addEventListener('message', function (e) {
             onFinish.fire(e.data);
         }, false);
