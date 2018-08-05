@@ -129,6 +129,8 @@
     body.appendChild(content);
     user_panel.refresh();
 
+    var footer = document.querySelector("#footer");
+    footer.style.display = "";
     
 
     function _scrollTo(id) {
