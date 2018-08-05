@@ -13,6 +13,8 @@ self.addEventListener('message', function (e) {
         //JIE.isDebug = true;
     }
 
+    console.log("進來worker");
+
     var obj = e.data;
     var team = obj.team;
     var quest_list = obj.quest_list;
@@ -205,6 +207,8 @@ self.addEventListener('message', function (e) {
     result.quest_times = get_quest_times(result.args, team);
     //result.finish_state = finish_state;
     //result.quest_table = quest_table;
+
+    console.log("結束Worker");
 
     self.postMessage(result);
 
