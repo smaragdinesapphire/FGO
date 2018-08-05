@@ -59,7 +59,7 @@
     max-height: 80vh;
     max-width: 80vw;
     overflow-x: scroll;
-    overflow-y: auto; }
+    overflow-y: scroll; }
     .dialog .container > div {
       padding: 0 16px 16px 16px; }
     .dialog .container .header {
@@ -72,7 +72,8 @@
       align-items: center;
       height: 30px; }
       .dialog .container .header > div, .dialog .container .row > div {
-        padding: 0 5px; }
+        padding: 0 5px;
+        white-space: nowrap; }
     .dialog .container .row:hover {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
     .dialog .container .c3, .dialog .container .c4, .dialog .container .c5 {

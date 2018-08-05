@@ -538,25 +538,27 @@ FGO.component.Dialog = function (options) {
         for (i in this._row_list) {
             tmp = this._row_list[i];
             for (target in tmp) {
-                if (target === 'body') {
-                    continue;
-                }
-                width = tmp[target].clientWidth - 10;   //css padding: 0 5px 0 5px;
-                if (!column[target] || column[target] < width) {
-                    column[target] = width;
+                if (/^c\d+$/.test(target)) {
+                    width = Math.ceil(tmp[target].clientWidth - 10);   //css padding: 0 5px 0 5px;
+                    if (!column[target] || column[target] < width) {
+                        column[target] = width;
+                    }
                 }
             }
         }
         //set
+        //width = 0;
+        //for (target in column) {
+        //    width += column[target];
+        //}
+
         for (i in this._row_list) {
             for (target in this._row_list[i]) {
-                if (typeof this._row_list[i][target] === 'function') {
-                    continue;
+                if (/^c\d+$/.test(target)) {
+                    this._row_list[i][target].style.minWidth = column[target] + 2 + "px"; // 預留空間2
                 }
-                this._row_list[i][target].style.width = column[target] + 2 + "px"; // 預留空間2
-
             }
-
+            //this._row_list[i].body.style.minWidth = width + (10 + 2) * 5+ "px"; //預留空間2px; padding: 10px
         }
     };
 

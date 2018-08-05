@@ -135,11 +135,6 @@ JIE.optimization.PSO.prototype.play = function () {
                 if (is_integer) p[arg_index] = Math.round(p[arg_index]);
 			}
 
-		    //for test
-			if (iter === 104) {
-			    var test = 0;
-			}
-
 		    //=== fix ===
             if (fixed_method) {
                 obj = fixed_method(p, bound);
