@@ -370,16 +370,48 @@
             AP: get_played_result_AP(list)
         };
     }
-    function get_played_result_AP(list) {
+    /*
+     * @function get_played_result_AP
+     * @param {Object} list 各關卡次數
+     * @param {Object} event 是否AP減半
+     * @return {Number} AP
+     */
+    function get_played_result_AP(list, event) {
         var AP = 0,
             quest = null,
-            type1, type2, times;
+            type1, type2, times,
+            AP_50_off = {},
+            weight, tmp_quest, has_event;
+
+        for (var index in default_info.event_list) {
+            type1 = default_info.event_list[index];
+            AP_50_off[type1] = event[type1] || 0;
+        }
 
         for (type1 in list) {
+
+            //check ap 50% off
+            weight = 1;
+            has_event = 0;
+            for (index in AP_50_off) {
+                if (AP_50_off[index]) {
+                    for (tmp_quest in default_info.quest_type[index]) {
+                        if (default_info.quest_type[index][tmp_quest] === type1) {
+                            has_event = 1;
+                            break;
+                        }
+                    }
+                    if (has_event) {
+                        weight = 0.5;
+                        break;
+                    }
+                }
+            }
+
             for (type2 in list[type1]) {
                 quest = default_info.quest_list[type1][type2];
                 times = list[type1][type2]
-                AP += quest.AP * times;
+                AP += Math.floor(quest.AP * weight) * times;
             }
         }
 

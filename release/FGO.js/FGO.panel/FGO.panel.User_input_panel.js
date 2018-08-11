@@ -247,7 +247,7 @@ JIE.base.inherit(FGO.panel.User_input_panel, JIE.component.Control_base, {
         (function (div) {
             var container = factory('Container', {
                 class_name: 'container',
-                title: language.get_word('イベント') + ' & ' +
+                title: language.get_word('イベント(消費AP 50%DOWN)') + ' & ' +
                        language.get_word('進行度')
             });
             var other = factory('Other');

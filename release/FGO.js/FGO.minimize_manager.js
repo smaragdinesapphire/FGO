@@ -11,7 +11,8 @@ FGO.minimize_manager = (function () {
     var quest_list = {};
     var target_items = {};
     var item2quest_list = {};
-    
+    var event_status = {};
+
     var onFinish = new JIE.event.Publisher("finish", this);
     var quest_manager = null;
     var times_per_PSO = 3;  //同個問題要反覆計算的次數
@@ -68,6 +69,13 @@ FGO.minimize_manager = (function () {
     //    //    }
     //    //}
     //};
+
+    /*
+     * 
+     */
+    var set_event_status = function (event) {
+        event_status = event;
+    }
 
     /*
      * list = {
@@ -358,6 +366,7 @@ FGO.minimize_manager = (function () {
                     quest_list: quest_list,
                     item2quest_list: item2quest_list,
                     target_items: team_target_item,
+                    event: event_status
                 });
             }
         }
@@ -596,5 +605,6 @@ FGO.minimize_manager = (function () {
         set_target_item_list: set_target_item_list,
         get_result: get_result,
         set_quest_manager: set_quest_manager,
+        set_event_status: set_event_status
     }
 })();

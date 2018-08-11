@@ -357,7 +357,7 @@ JIE.base.inherit(FGO.component.Other, JIE.component.Control_base, {
         var language = FGO.language_manager;
         var event_area = NewObj("div", "event_area");
         this._event_ul = NewObj("ul", "event");
-        event_area.appendChild(NewObj("div", "title", language.get_word('イベント')));
+        event_area.appendChild(NewObj("div", "title", language.get_word('イベント(消費AP 50%DOWN)')));
         event_area.appendChild(this._event_ul);
 
         var schedule_area = NewObj("div", "schedule_area");

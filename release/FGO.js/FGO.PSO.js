@@ -3,34 +3,35 @@
  */
 self.addEventListener('message', function (e) {
     //for web
-    if (typeof JIE === 'undefined') {
-        importScripts("/FGO/release/JIE.js/JIE.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.base.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.math.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.optimization/JIE.optimization.PSO.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.info_manager.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.info.min.js");
-        //JIE.isDebug = true;
-    }
-
-    ////for local
     //if (typeof JIE === 'undefined') {
-    //    importScripts("/release/JIE.js/JIE.min.js");
-    //    importScripts("/release/JIE.js/JIE.base.min.js");
-    //    importScripts("/release/JIE.js/JIE.math.min.js");
-    //    importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.min.js");
-    //    importScripts("/release/FGO.js/FGO.min.js");
-    //    importScripts("/release/FGO.js/FGO.info_manager.min.js");
-    //    importScripts("/release/FGO.js/FGO.info.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.base.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.math.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.optimization/JIE.optimization.PSO.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.info_manager.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.info.min.js");
     //    //JIE.isDebug = true;
     //}
+
+    //for local
+    if (typeof JIE === 'undefined') {
+        importScripts("/release/JIE.js/JIE.js");
+        importScripts("/release/JIE.js/JIE.base.js");
+        importScripts("/release/JIE.js/JIE.math.js");
+        importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js");
+        importScripts("/release/FGO.js/FGO.js");
+        importScripts("/release/FGO.js/FGO.info_manager.js");
+        importScripts("/release/FGO.js/FGO.info.js");
+        //JIE.isDebug = true;
+    }
 
     var obj = e.data;
     var team = obj.team;
     var quest_list = obj.quest_list;
     var item2quest_list = obj.item2quest_list;
     var target_items = obj.target_items;
+    var event = obj.event;
     //var finish_state = obj.finish_state;
     //var quest_table = obj.quest_table;
 
@@ -62,7 +63,7 @@ self.addEventListener('message', function (e) {
             fn.length = team.quest_list.length;
             fn.get_fit = function () {
                 var list = get_quest_times(arguments, team);
-                var AP = quest_manager.get_played_result_AP(list);
+                var AP = quest_manager.get_played_result_AP(list, event);
                 return AP;
             };
             return fn;

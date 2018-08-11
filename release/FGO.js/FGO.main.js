@@ -55,7 +55,7 @@
         var user_setting = user_panel.get_result();
 
         var item, has_target = false;
-        var JP_item_list = {};
+        var JP_item_list = {}, event_status = {};
         for (item in user_setting.item_list) {
             if (user_setting.item_list[item]) {
                 if (!has_target) {
@@ -72,7 +72,12 @@
             info_manager.set_target_item_list(JP_item_list);
             info_manager.set_schedule(language_manager.get_JP_word(user_setting.other_setting.schedule));
 
+            
+            for (item in user_setting.other_setting.event) {
+                event_status[language_manager.get_JP_word(item)] = user_setting.other_setting.event[item];
+            }
 
+            minimize_manager.set_event_status(event_status);
             minimize_manager.set_target_item_list(JP_item_list);
             minimize_manager.get_result(function (result) {
                 var item_list = {}, item;
@@ -92,9 +97,7 @@
 
                 result_panel.set_target_item_list(JP_item_list);
                 result_panel.set_value(data);
-                //result_panel.clear_max_height();
                 result_panel.show();
-                //result_panel.auto_set_max_height();
                 result_panel.refresh();
                 _scrollTo("result_panel");
                 processing_dialog.hide();
