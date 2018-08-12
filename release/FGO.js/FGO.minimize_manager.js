@@ -75,6 +75,7 @@ FGO.minimize_manager = (function () {
      */
     var set_event_status = function (event) {
         event_status = event;
+        quest_manager.set_event(event);
     }
 
     /*
