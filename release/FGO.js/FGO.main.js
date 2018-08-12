@@ -67,164 +67,164 @@
         }
 
 
-        if (has_target) {
-            processing_dialog.show();
-
-
-
-            //get all can used quest
-            var can_used_quest = [];
-            var schedule_list = info_manager.get_schedule_list();
-            var user_schedule_JP = language_manager.get_JP_word(user_setting.other_setting.schedule);
-            for (index = 0, length = schedule_list.length; index < length; index += 1) {
-                if (schedule_list[index] !== user_schedule_JP) {
-                    can_used_quest.push(schedule_list[index]);
-                }
-                else {
-                    can_used_quest.push(schedule_list[index]);
-                    break;
-                }
-            }
-
-
-            var best_result = null;
-            for (item in user_setting.other_setting.event) {
-                event_status[language_manager.get_JP_word(item)] = user_setting.other_setting.event[item];
-            }
-            
-            //event combo
-            var event_combo_list = [];
-
-            if (!event_status["曜日クエスト"] && !event_status["フリークエスト"]) {
-                event_combo_list.push({
-                    "曜日クエスト": 0,
-                    "フリークエスト": 0
-                });
-            }
-            else {
-                if (event_status["曜日クエスト"]) {
-                    event_combo_list.push({
-                        "曜日クエスト": 1,
-                        "フリークエスト": 0
-                    });
-                }
-                if (event_status["フリークエスト"]) {
-                    event_combo_list.push({
-                        "曜日クエスト": 0,
-                        "フリークエスト": 1
-                    });
-                }
-                if (event_status["曜日クエスト"] && event_status["フリークエスト"]) {
-                    event_combo_list.push({
-                        "曜日クエスト": 1,
-                        "フリークエスト": 1
-                    });
-                }
-            }
-
-            var step_obj_list = [];
-            for (var i = 0, i_max = event_combo_list.length; i < i_max; i += 1) {
-                for (var j = 0, j_max = can_used_quest.length; j < j_max; j += 1) {
-                    step_obj_list.push({
-                        event_status: event_combo_list[i],
-                        schedule: schedule_list[j]
-                    });
-                }
-            }
-
-
-            index = 0; length = step_obj_list.length;
-            next();
-            function next() {
-                info_manager.set_target_item_list(JP_item_list);
-                info_manager.set_schedule(step_obj_list[index].schedule);
-                minimize_manager.set_event_status(step_obj_list[index].event_status);
-                minimize_manager.set_target_item_list(JP_item_list);
-                minimize_manager.get_result(function (result) {
-                    if (!best_result || best_result.AP > result.AP) {
-                        best_result = result;
-
-                        //for debug
-                        //if (step_obj_list[index].schedule === "冬木") {
-                        //    var stop = 1;
-                        //    stop;
-                        //}
-
-
-                    }
-                    index += 1;
-                    if (index < length) {
-                        next();
-                    }
-                    else {
-                        finish(best_result);
-                    }
-                });
-            }
-        }
-        
-        function finish(result) {
-            var item_list = {}, item;
-            for (item in result.item_list) {
-                item_list[language_manager.get_word(item)] = result.item_list[item];
-            }
-            var times_list = {}, type1, type2, type1_word, type2_word;
-            for (type1 in result.times_list) {
-                type1_word = language_manager.get_word(type1);
-                times_list[type1_word] = {};
-                for (type2 in result.times_list[type1]) {
-                    times_list[type1_word][language_manager.get_word(type2)] = result.times_list[type1][type2];
-                }
-            }
-
-            var data = { AP: result.AP, times_list: times_list, item_list: item_list };
-
-            result_panel.set_target_item_list(JP_item_list);
-            result_panel.set_value(data);
-            result_panel.show();
-            result_panel.refresh();
-            _scrollTo("result_panel");
-            processing_dialog.hide();
-        }
-
         //if (has_target) {
         //    processing_dialog.show();
 
 
-        //    info_manager.set_target_item_list(JP_item_list);
-        //    info_manager.set_schedule(language_manager.get_JP_word(user_setting.other_setting.schedule));
 
-            
+        //    //get all can used quest
+        //    var can_used_quest = [];
+        //    var schedule_list = info_manager.get_schedule_list();
+        //    var user_schedule_JP = language_manager.get_JP_word(user_setting.other_setting.schedule);
+        //    for (index = 0, length = schedule_list.length; index < length; index += 1) {
+        //        if (schedule_list[index] !== user_schedule_JP) {
+        //            can_used_quest.push(schedule_list[index]);
+        //        }
+        //        else {
+        //            can_used_quest.push(schedule_list[index]);
+        //            break;
+        //        }
+        //    }
+
+
+        //    var best_result = null;
         //    for (item in user_setting.other_setting.event) {
         //        event_status[language_manager.get_JP_word(item)] = user_setting.other_setting.event[item];
         //    }
+            
+        //    //event combo
+        //    var event_combo_list = [];
 
-        //    minimize_manager.set_event_status(event_status);
-        //    minimize_manager.set_target_item_list(JP_item_list);
-        //    minimize_manager.get_result(function (result) {
-        //        var item_list = {}, item;
-        //        for (item in result.item_list) {
-        //            item_list[language_manager.get_word(item)] = result.item_list[item];
+        //    if (!event_status["曜日クエスト"] && !event_status["フリークエスト"]) {
+        //        event_combo_list.push({
+        //            "曜日クエスト": 0,
+        //            "フリークエスト": 0
+        //        });
+        //    }
+        //    else {
+        //        if (event_status["曜日クエスト"]) {
+        //            event_combo_list.push({
+        //                "曜日クエスト": 1,
+        //                "フリークエスト": 0
+        //            });
         //        }
-        //        var times_list = {}, type1, type2, type1_word, type2_word;
-        //        for (type1 in result.times_list) {
-        //            type1_word = language_manager.get_word(type1);
-        //            times_list[type1_word] = {};
-        //            for (type2 in result.times_list[type1]) {
-        //                times_list[type1_word][language_manager.get_word(type2)] = result.times_list[type1][type2];
+        //        if (event_status["フリークエスト"]) {
+        //            event_combo_list.push({
+        //                "曜日クエスト": 0,
+        //                "フリークエスト": 1
+        //            });
+        //        }
+        //        if (event_status["曜日クエスト"] && event_status["フリークエスト"]) {
+        //            event_combo_list.push({
+        //                "曜日クエスト": 1,
+        //                "フリークエスト": 1
+        //            });
+        //        }
+        //    }
+
+        //    var step_obj_list = [];
+        //    for (var i = 0, i_max = event_combo_list.length; i < i_max; i += 1) {
+        //        for (var j = 0, j_max = can_used_quest.length; j < j_max; j += 1) {
+        //            step_obj_list.push({
+        //                event_status: event_combo_list[i],
+        //                schedule: schedule_list[j]
+        //            });
+        //        }
+        //    }
+
+
+        //    index = 0; length = step_obj_list.length;
+        //    next();
+        //    function next() {
+        //        info_manager.set_target_item_list(JP_item_list);
+        //        info_manager.set_schedule(step_obj_list[index].schedule);
+        //        minimize_manager.set_event_status(step_obj_list[index].event_status);
+        //        minimize_manager.set_target_item_list(JP_item_list);
+        //        minimize_manager.get_result(function (result) {
+        //            if (!best_result || best_result.AP > result.AP) {
+        //                best_result = result;
+
+        //                //for debug
+        //                //if (step_obj_list[index].schedule === "冬木") {
+        //                //    var stop = 1;
+        //                //    stop;
+        //                //}
+
+
         //            }
-        //        }
-
-        //        var data = { AP: result.AP, times_list: times_list, item_list: item_list };
-
-        //        result_panel.set_target_item_list(JP_item_list);
-        //        result_panel.set_value(data);
-        //        result_panel.show();
-        //        result_panel.refresh();
-        //        _scrollTo("result_panel");
-        //        processing_dialog.hide();
-        //    });
+        //            index += 1;
+        //            if (index < length) {
+        //                next();
+        //            }
+        //            else {
+        //                finish(best_result);
+        //            }
+        //        });
+        //    }
         //}
+        
+        //function finish(result) {
+        //    var item_list = {}, item;
+        //    for (item in result.item_list) {
+        //        item_list[language_manager.get_word(item)] = result.item_list[item];
+        //    }
+        //    var times_list = {}, type1, type2, type1_word, type2_word;
+        //    for (type1 in result.times_list) {
+        //        type1_word = language_manager.get_word(type1);
+        //        times_list[type1_word] = {};
+        //        for (type2 in result.times_list[type1]) {
+        //            times_list[type1_word][language_manager.get_word(type2)] = result.times_list[type1][type2];
+        //        }
+        //    }
+
+        //    var data = { AP: result.AP, times_list: times_list, item_list: item_list };
+
+        //    result_panel.set_target_item_list(JP_item_list);
+        //    result_panel.set_value(data);
+        //    result_panel.show();
+        //    result_panel.refresh();
+        //    _scrollTo("result_panel");
+        //    processing_dialog.hide();
+        //}
+
+        if (has_target) {
+            processing_dialog.show();
+
+
+            info_manager.set_target_item_list(JP_item_list);
+            info_manager.set_schedule(language_manager.get_JP_word(user_setting.other_setting.schedule));
+
+            
+            for (item in user_setting.other_setting.event) {
+                event_status[language_manager.get_JP_word(item)] = user_setting.other_setting.event[item];
+            }
+
+            minimize_manager.set_event_status(event_status);
+            minimize_manager.set_target_item_list(JP_item_list);
+            minimize_manager.get_result(function (result) {
+                var item_list = {}, item;
+                for (item in result.item_list) {
+                    item_list[language_manager.get_word(item)] = result.item_list[item];
+                }
+                var times_list = {}, type1, type2, type1_word, type2_word;
+                for (type1 in result.times_list) {
+                    type1_word = language_manager.get_word(type1);
+                    times_list[type1_word] = {};
+                    for (type2 in result.times_list[type1]) {
+                        times_list[type1_word][language_manager.get_word(type2)] = result.times_list[type1][type2];
+                    }
+                }
+
+                var data = { AP: result.AP, times_list: times_list, item_list: item_list };
+
+                result_panel.set_target_item_list(JP_item_list);
+                result_panel.set_value(data);
+                result_panel.show();
+                result_panel.refresh();
+                _scrollTo("result_panel");
+                processing_dialog.hide();
+            });
+        }
     });
     user_panel.onSave.subscribe(function () {
         var result = user_panel.get_result();
