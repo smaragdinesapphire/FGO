@@ -19,7 +19,7 @@ self.addEventListener('message', function (e) {
     //    importScripts("/release/JIE.js/JIE.js");
     //    importScripts("/release/JIE.js/JIE.base.js");
     //    importScripts("/release/JIE.js/JIE.math.js");
-    //    importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js");
+    //    importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js?0");
     //    importScripts("/release/FGO.js/FGO.js");
     //    importScripts("/release/FGO.js/FGO.info_manager.js");
     //    importScripts("/release/FGO.js/FGO.info.js");
@@ -32,6 +32,8 @@ self.addEventListener('message', function (e) {
     var item2quest_list = obj.item2quest_list;
     var target_items = obj.target_items;
     var event = obj.event;
+    var roulette_table = {};
+    create_roulette_table();
 
     var quest_manager = FGO.info_manager;
 
@@ -46,7 +48,9 @@ self.addEventListener('message', function (e) {
         PSO_data.g_best = get_g_best();
         PSO_data.p_max = 40;
         PSO_data.iter_max = 4000;
-        PSO_data.no_change_limit = 20;
+        PSO_data.no_change_limit = 40;
+        PSO_data.c1 = 0.5;
+        PSO_data.c2 = 2;
 
         return PSO_data;
 
@@ -96,22 +100,29 @@ self.addEventListener('message', function (e) {
          * 設定每個關卡次數最多的增減數
          */
         function create_v_max() {
-            var v_max = [], index, length;
+            var v_max = [], index, length, value;
             for (index = 0, length = team.quest_list.length; index < length; index += 1) {
-                v_max.push(Math.ceil(PSO_data.bound[index].max / 10));
+                value = Math.ceil(PSO_data.bound[index].max / 10);
+                if (value < 10) {
+                    value = PSO_data.bound[index].max;
+                }
+                v_max.push(value);
             }
             return v_max;
         };
+
+
 
         /*
          * 修正各關卡通關次數
          * 
          * @function fixed_method
-         * @param  {Array}  arr   該team各關卡次數
-         * @param  {Object} bound 該team各關卡上下限次數
-         * @return {Object} ans   修正後關卡次數
+         * @param  {Array}   arr   該team各關卡次數
+         * @param  {Object}  bound 該team各關卡上下限次數
+         * @param  {Boolean} no_use_roulette 是否不使用輪盤
+         * @return {Object}  ans   修正後關卡次數
          */
-        function fixed_method(arr, bound) {
+        function fixed_method(arr, bound, no_use_roulette) {
             var i, type, quest, item_list = {}, diff, ans = [], item;
             JIE.base.extend(ans, arr);
 
@@ -128,17 +139,37 @@ self.addEventListener('message', function (e) {
                     if (!item2quest_list[item] || !item2quest_list[item].length) continue;  //沒關卡有該道具
 
                     diff = target_items[item] - (item_list[item] || 0);
-                    type = item2quest_list[item][0].type;
+
+
+                    if (!no_use_roulette) {
+                        type = get_type_by_roulette(item);
+                        function get_type_by_roulette() {
+                            var target = Math.random(),
+                                type,
+                                length = roulette_table[item].length,
+                                index;
+                            for (index = 0; index < length; index += 1) {
+                                if (target < roulette_table[item][index]) {
+                                    return item2quest_list[item][index].type;
+                                }
+                            }
+
+                            return item2quest_list[item][length - 1].type;
+                        }
+                    }
+                    else {
+                        type = item2quest_list[item][0].type;
+                    }
+
                     quest = quest_list[type[0]][type[1]];
+
 
                     //if (diff <= 0) continue; //充足
 
                     for (i in team.quest_list) {
                         if (team.quest_list[i].toString() === type.toString()) {
                             ans[i] += Math.ceil(diff / quest.drop_list[item]);
-
-                            //test
-                            var count = ans[i] * quest.drop_list[item];
+                            //item_list = quest_manager.get_played_result_items(get_quest_times(ans, team));
 
                             break;
                         }
@@ -160,7 +191,7 @@ self.addEventListener('message', function (e) {
                 arr.push(0);
             }
 
-            var args = fixed_method(arr, PSO_data.bound)
+            var args = fixed_method(arr, PSO_data.bound, true)
             //var fit = quest_manager.get_played_result_AP(get_quest_times(args, team))
             var fit = (function (list) {
                 var AP = 0,
@@ -184,6 +215,35 @@ self.addEventListener('message', function (e) {
             };
         };
     })(team);
+
+    /*
+     * 產生修正時參照的輪盤表單
+     * 令選擇修正不足的關卡由CP高低影響被選到的機率
+     */
+    function create_roulette_table() {
+        var item, index, total_CP = {}, length, now = {};
+
+        //create total CP
+        for (item in item2quest_list) {
+            roulette_table[item] = [];
+            total_CP[item] = now[item] = 0;
+            length = item2quest_list[item].length;
+            for (index = 0; index < length; index += 1) {
+                total_CP[item] += item2quest_list[item][index].CP;
+            }
+        }
+
+        //create P of the single CP
+        for (item in item2quest_list) {
+            length = item2quest_list[item].length;
+            for (index = 0; index < length; index += 1) {
+                now[item] += item2quest_list[item][index].CP / total_CP[item];
+                roulette_table[item][index] = now[item];
+            }
+        }
+
+        return;
+    }
 
     /*
      * 取得各關卡遊玩次數

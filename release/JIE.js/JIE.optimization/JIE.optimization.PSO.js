@@ -50,12 +50,30 @@ JIE.optimization.PSO.prototype.play = function () {
 
 	var iter, iter_max, p_list = [], index, p, fit, arg_index, new_p, no_change = 0, last_g_fit,
 		last_v_list = [], v, new_v,
-		p_best_list = [], obj;
+		p_best_list = [], obj,
+		isFixed;
 
 		
 	//=== 產生初始族群 ===
-	var arg_count = fn.length, value;
-	for (index = 0; index < p_max; index++) {
+	var arg_count = fn.length, value, length;
+
+	if (g_best) {
+	    p_list.push(g_best.args);
+	    p_best_list.push(g_best);
+
+	    v = [];
+	    for (arg_index = 0; arg_index < arg_count; arg_index++) {
+	        v.push(Math.random() * v_max[arg_index] * (Math.random() > 0.5 ? 1 : -1));
+	    }
+	    last_v_list.push(v);
+
+	    index = 1;
+	}
+	else {
+	    index = 0;
+	}
+
+	for (; index < p_max; index++) {
 		//=== position ===
 		if (first_gen === null) {
 			p = [];
@@ -90,7 +108,7 @@ JIE.optimization.PSO.prototype.play = function () {
 			g_best = obj;
 		} else {
 			if (is_minimazation) {
-			    if (obj.fti < g_best.fit) {
+			    if (obj.fit < g_best.fit) {
 					g_best = obj;
 				}
 			} else {
@@ -99,15 +117,18 @@ JIE.optimization.PSO.prototype.play = function () {
 				}
 			}
 		}
-		last_g_fit = g_best.fit;
 
 		//=== speed ===
 		v = [];
 		for (arg_index = 0; arg_index < arg_count; arg_index++) {
-			v.push(0);
+		    //v.push(0);
+		    v.push(Math.random() * v_max[arg_index] * (Math.random() > 0.5 ? 1 : -1));
 		}
 		last_v_list[index] = v;
 	}
+
+
+	last_g_fit = g_best.fit;
 
 	//=== 開始迭代 ===
 	for (iter = 0, iter_max = this.options.iter_max; iter <iter_max; iter++) {
@@ -135,7 +156,7 @@ JIE.optimization.PSO.prototype.play = function () {
                 if (is_integer) p[arg_index] = Math.round(p[arg_index]);
 			}
 
-		    //=== fix ===
+		    //=== fix position ===
             if (fixed_method) {
                 obj = fixed_method(p, bound);
                 if (obj.fit === undefined) {
@@ -145,6 +166,19 @@ JIE.optimization.PSO.prototype.play = function () {
                 for (index = 0; index < bound.length; index++) {
                     if (p[index] < bound[index].min) p[index] = bound[index].min;
                     if (p[index] > bound[index].max) p[index] = bound[index].max;
+                }
+            }
+		    //=== fix v ===
+            isFixed = false;
+            for (arg_index = 0; arg_index < arg_count; arg_index++) {
+                if (p[arg_index] !== obj[arg_index]) {
+                    isFixed = true;
+                    break;
+                }
+            }
+            if (isFixed) {
+                for (arg_index = 0; arg_index < arg_count; arg_index++) {
+                    last_v_list[index][arg_index] = obj.args[arg_index] - p_list[index][arg_index];
                 }
             }
 
@@ -178,7 +212,9 @@ JIE.optimization.PSO.prototype.play = function () {
                 no_change = 0;
             } else {
                 no_change += 1;
-                if (no_change === no_change_limit) break;
+                if (no_change === no_change_limit) {
+                    break;
+                }
             }
         }
 
