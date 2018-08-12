@@ -145,10 +145,10 @@
                         best_result = result;
 
                         //for debug
-                        if (step_obj_list[index].schedule === "冬木") {
-                            var stop = 1;
-                            stop;
-                        }
+                        //if (step_obj_list[index].schedule === "冬木") {
+                        //    var stop = 1;
+                        //    stop;
+                        //}
 
 
                     }

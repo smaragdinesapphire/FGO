@@ -3,28 +3,28 @@
  */
 self.addEventListener('message', function (e) {
     //for web
-    if (typeof JIE === 'undefined') {
-        importScripts("/FGO/release/JIE.js/JIE.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.base.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.math.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.optimization/JIE.optimization.PSO.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.info_manager.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.info.min.js");
-        //JIE.isDebug = true;
-    }
-
-    //for local
     //if (typeof JIE === 'undefined') {
-    //    importScripts("/release/JIE.js/JIE.js");
-    //    importScripts("/release/JIE.js/JIE.base.js");
-    //    importScripts("/release/JIE.js/JIE.math.js");
-    //    importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js?0");
-    //    importScripts("/release/FGO.js/FGO.js");
-    //    importScripts("/release/FGO.js/FGO.info_manager.js");
-    //    importScripts("/release/FGO.js/FGO.info.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.base.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.math.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.optimization/JIE.optimization.PSO.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.info_manager.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.info.min.js");
     //    //JIE.isDebug = true;
     //}
+
+    //for local
+    if (typeof JIE === 'undefined') {
+        importScripts("/release/JIE.js/JIE.js");
+        importScripts("/release/JIE.js/JIE.base.js");
+        importScripts("/release/JIE.js/JIE.math.js");
+        importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js?0");
+        importScripts("/release/FGO.js/FGO.js");
+        importScripts("/release/FGO.js/FGO.info_manager.js");
+        importScripts("/release/FGO.js/FGO.info.js");
+        //JIE.isDebug = true;
+    }
 
     var obj = e.data;
     var team = obj.team;

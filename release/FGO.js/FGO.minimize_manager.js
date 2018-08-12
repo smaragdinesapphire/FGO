@@ -15,7 +15,7 @@ FGO.minimize_manager = (function () {
 
     var onFinish = new JIE.event.Publisher("finish", this);
     var quest_manager = null;
-    var times_per_PSO = 3;  //同個問題要反覆計算的次數
+    var times_per_PSO = 10;  //同個問題要反覆計算的次數
 
     //record
     var quest_table = [];
