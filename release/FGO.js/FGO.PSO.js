@@ -14,7 +14,7 @@ self.addEventListener('message', function (e) {
         //JIE.isDebug = true;
     }
 
-    //for local
+    ////for local
     //if (typeof JIE === 'undefined') {
     //    importScripts("/release/JIE.js/JIE.js");
     //    importScripts("/release/JIE.js/JIE.base.js");
