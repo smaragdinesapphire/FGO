@@ -34,7 +34,11 @@ FGO.minimize_manager = (function () {
         PSO.onmessage = function (e) {
             check_PSO_team_finish(e.data);
         };
-        var LP_worker = new Worker("/FGO/release/LP_worker.min.js?" + FGO.ver);
+        //var LP_worker = new Worker("/FGO/release/LP_worker.min.js?" + FGO.ver);
+        //LP_worker.onmessage = function (e) {
+        //    check_LP_team_finish(e.data);
+        //};
+        var LP_worker = new Worker("/FGO/release/LP_worker.js?" + FGO.ver);
         LP_worker.onmessage = function (e) {
             check_LP_team_finish(e.data);
         };
