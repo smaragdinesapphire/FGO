@@ -29,14 +29,27 @@ FGO.minimize_manager = (function () {
         best: null
     };
     //worker
-    var PSO = new Worker('release/FGO.js/FGO.PSO.js?' + FGO.ver);
-    PSO.onmessage = function (e) {
-        check_PSO_team_finish(e.data);
-    };
-    var LP_worker = new Worker("/release/LP_worker.js?" + FGO.ver);
-    LP_worker.onmessage = function (e) {
-        check_LP_team_finish(e.data);
-    };
+    if (FGO.isWebSite) {
+        var PSO = new Worker('/FGO/release/FGO.js/FGO.PSO.min.js?' + FGO.ver);
+        PSO.onmessage = function (e) {
+            check_PSO_team_finish(e.data);
+        };
+        var LP_worker = new Worker("/FGO//release/LP_worker.min.js?" + FGO.ver);
+        LP_worker.onmessage = function (e) {
+            check_LP_team_finish(e.data);
+        };
+    }
+    else {
+        var PSO = new Worker('/release/FGO.js/FGO.PSO.js?' + FGO.ver);
+        PSO.onmessage = function (e) {
+            check_PSO_team_finish(e.data);
+        };
+        var LP_worker = new Worker("/release/LP_worker.js?" + FGO.ver);
+        LP_worker.onmessage = function (e) {
+            check_LP_team_finish(e.data);
+        };
+    }
+    
     //LP_worker.addEventListener('message', function (e) {
     //    check_LP_team_finish(e.data);
     //}, false);
@@ -242,8 +255,11 @@ FGO.minimize_manager = (function () {
                 target_items: team_target_item,
                 event: event_status
             });
-            //LP_worker.postMessage({ data: data, ver: FGO.ver, maxNumTableaus: quest_table[quest_table_index].item_list.length * 100 });
-            LP_worker.postMessage({ data: data, ver: FGO.ver});
+            LP_worker.postMessage({
+                data: data,
+                ver: FGO.ver,
+                isWebSite: FGO.isWebSite
+            });
         }
     }
     function end_LP() {
@@ -463,7 +479,8 @@ FGO.minimize_manager = (function () {
             item2quest_list: item2quest_list,
             target_items: team_target_item,
             event: event_status,
-            best: PSO_obj.best
+            best: PSO_obj.best,
+            isWebSite: FGO.isWebSite
         });
     }
 
