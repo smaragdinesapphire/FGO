@@ -10,7 +10,7 @@
         //    //JIE.isDebug = true;
         //}
         if (typeof LP_interface === 'undefined') {
-            importScripts("../FGO/release/LP_interface/LPdefs.js" + e.data.ver);
+            importScripts("https://smaragdinesapphire.github.io/FGO/release/LP_interface/LPdefs.js" + e.data.ver);
             importScripts("../FGO/release/LP_interface/LPmethods.js" + e.data.ver);
             importScripts("../FGO/release/LP_interface.js" + e.data.ver);
             //JIE.isDebug = true;
