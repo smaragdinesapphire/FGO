@@ -1,0 +1,99 @@
+﻿.dialog {
+    position: fixed;
+    z-index: 999;
+    top:0;
+    left:0;
+    >.mask {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.2);
+        top:0;
+        left:0;
+    }
+    .dialog {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 90vh;
+        max-width: 90vw;
+
+        
+        /*padding: 3px;*/
+        /*border: 1px solid #D6D6D6;*/
+        background: rgb(252,252,252); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(252,252,252,1) 83%, rgba(252,252,252,1) 83%, rgba(242,242,242,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(252,252,252,1) 83%,rgba(252,252,252,1) 83%,rgba(242,242,242,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(252,252,252,1) 83%,rgba(252,252,252,1) 83%,rgba(242,242,242,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+        box-shadow: 5px 5px 5px #777777;
+        /*border-radius: 8px 5px;*/
+        padding: 0 16px 16px 16px;
+
+        > .header {
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            > .title {
+                height: 16px;
+                font-size: 16px;
+                /*font-weight: bold;*/
+            }
+        }
+    }
+    
+    
+    .close_icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        /*margin: 1px;*/
+        &:hover {
+            background: #ff5151;
+            color: white;
+        }
+        /*border-radius: 5px 5px;*/
+        text-align: center;
+        font-weight: bold;
+        line-height: 30px;
+    }
+    .container {
+        max-height: 80vh;
+        max-width: 80vw;
+        overflow-x: scroll;
+        overflow-y: scroll;
+
+        > div {
+            padding: 0 16px 16px 16px;
+        }
+
+        .header {
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid black;
+        }
+        .header, .row{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 30px;
+
+            > div {
+                padding: 0 5px;
+                white-space:nowrap;
+            }
+        }
+        .row:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .c3, .c4, .c5{
+            text-align: right;
+        }
+    }
+}

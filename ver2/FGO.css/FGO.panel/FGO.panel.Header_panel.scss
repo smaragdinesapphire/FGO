@@ -1,0 +1,26 @@
+﻿.header_panel {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4096ee+0,004de8+100 */
+    background: rgb(64,150,238); /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(64,150,238,1) 0%, rgba(0,77,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(64,150,238,1) 0%,rgba(0,77,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(64,150,238,1) 0%,rgba(0,77,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#004de8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+    padding-right: 16px;
+    border-bottom: 2px solid rgb(123, 186, 251);
+    > .language_area {
+        > .text {
+            color: white;
+            font-weight: bolder;
+            margin-right: 10px;
+
+        }
+        > .text, select {
+            display: inline-block;
+        }
+        
+    }
+}

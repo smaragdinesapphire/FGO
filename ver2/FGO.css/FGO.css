@@ -1,0 +1,70 @@
+﻿body {
+  padding: 0;
+  margin: 0;
+  background-image: url(../image/background.png);
+  background-repeat: repeat;
+  background-attachment: fixed;
+  cursor: default; }
+
+.main_content {
+  width: auto;
+  padding: 10px; }
+
+.top {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  text-align: center;
+  background-color: #cc0000;
+  border: 2px solid black;
+  border-radius: 36px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  cursor: pointer;
+  opacity: 0.5; }
+  .top:hover {
+    opacity: 1; }
+
+button {
+  cursor: pointer;
+  border: 1px solid black;
+  background: #dddddd;
+  background: -moz-linear-gradient(top, #dddddd 0%, #bcbcbc 100%);
+  background: -webkit-linear-gradient(top, #dddddd 0%, #bcbcbc 100%);
+  background: linear-gradient(to bottom, #dddddd 0%, #bcbcbc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#bcbcbc',GradientType=0 ); }
+  button:hover {
+    color: white;
+    background: #828282;
+    background: -moz-linear-gradient(top, #828282 0%, #bcbcbc 100%);
+    background: -webkit-linear-gradient(top, #828282 0%, #bcbcbc 100%);
+    background: linear-gradient(to bottom, #828282 0%, #bcbcbc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#828282', endColorstr='#bcbcbc',GradientType=0 ); }
+
+input {
+  cursor: text; }
+
+input[type="checkbox"] {
+  cursor: pointer; }
+
+select {
+  cursor: pointer; }
+
+.keyword {
+  display: none; }
+
+footer {
+  background: -moz-linear-gradient(top, rgba(224, 243, 250, 0.5) 0%, rgba(224, 243, 250, 0.51) 2%, #b8e2f6 100%);
+  background: -webkit-linear-gradient(top, rgba(224, 243, 250, 0.5) 0%, rgba(224, 243, 250, 0.51) 2%, #b8e2f6 100%);
+  background: linear-gradient(to bottom, rgba(224, 243, 250, 0.5) 0%, rgba(224, 243, 250, 0.51) 2%, #b8e2f6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80e0f3fa', endColorstr='#b8e2f6',GradientType=0 );
+  padding: 8px 16px 8px 16px;
+  border-top: 2px double #4c7bff; }
+  footer a {
+    margin: 0 5px; }
+  footer > div {
+    display: inline-block; }
+

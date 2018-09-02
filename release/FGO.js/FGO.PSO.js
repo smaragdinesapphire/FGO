@@ -2,29 +2,29 @@
  * 該程式為worker所載入之js
  */
 self.addEventListener('message', function (e) {
-    //for web
-    if (typeof JIE === 'undefined') {
-        importScripts("/FGO/release/JIE.js/JIE.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.base.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.math.min.js");
-        importScripts("/FGO/release/JIE.js/JIE.optimization/JIE.optimization.PSO.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.info_manager.min.js");
-        importScripts("/FGO/release/FGO.js/FGO.info.min.js");
-        //JIE.isDebug = true;
-    }
-
-    ////for local
+    ////for web
     //if (typeof JIE === 'undefined') {
-    //    importScripts("/release/JIE.js/JIE.js");
-    //    importScripts("/release/JIE.js/JIE.base.js");
-    //    importScripts("/release/JIE.js/JIE.math.js");
-    //    importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js?0");
-    //    importScripts("/release/FGO.js/FGO.js");
-    //    importScripts("/release/FGO.js/FGO.info_manager.js");
-    //    importScripts("/release/FGO.js/FGO.info.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.base.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.math.min.js");
+    //    importScripts("/FGO/release/JIE.js/JIE.optimization/JIE.optimization.PSO.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.info_manager.min.js");
+    //    importScripts("/FGO/release/FGO.js/FGO.info.min.js");
     //    //JIE.isDebug = true;
     //}
+
+    //for local
+    if (typeof JIE === 'undefined') {
+        importScripts("/release/JIE.js/JIE.js");
+        importScripts("/release/JIE.js/JIE.base.js");
+        importScripts("/release/JIE.js/JIE.math.js");
+        importScripts("/release/JIE.js/JIE.optimization/JIE.optimization.PSO.js?0");
+        importScripts("/release/FGO.js/FGO.js");
+        importScripts("/release/FGO.js/FGO.info_manager.js");
+        importScripts("/release/FGO.js/FGO.info.js");
+        //JIE.isDebug = true;
+    }
 
     var obj = e.data;
     var team = obj.team;
@@ -33,6 +33,7 @@ self.addEventListener('message', function (e) {
     var target_items = obj.target_items;
     var event = obj.event;
     var roulette_table = {};
+    var less_best = obj.best;
     create_roulette_table();
 
     var quest_manager = FGO.info_manager;
@@ -45,7 +46,7 @@ self.addEventListener('message', function (e) {
         PSO_data.fixed_method = fixed_method;
         PSO_data.is_integer = true;
         PSO_data.is_minimazation = true;
-        PSO_data.g_best = get_g_best();
+        PSO_data.g_best = get_g_best(less_best);
         PSO_data.p_max = 40;
         PSO_data.iter_max = 4000;
         PSO_data.no_change_limit = 40;
@@ -184,11 +185,17 @@ self.addEventListener('message', function (e) {
          * 產生初始解
          * 先預設各關卡通關次數為0，再透過修正方法找出初始解
          */
-        function get_g_best() {
+        function get_g_best(data) {
             //產生初始解
-            var arr = [], i;
+            var arr = [], i, type;
             for (i in team.quest_list) {
-                arr.push(0);
+                type = team.quest_list[i];
+                if (data[type[0]] && data[type[0]][type[1]]) {
+                    arr.push(data[type[0]][type[1]]);
+                }
+                else {
+                    arr.push(0);
+                }
             }
 
             var args = fixed_method(arr, PSO_data.bound, true)

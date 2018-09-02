@@ -1,0 +1,33 @@
+﻿.quest_times_grid {
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.70);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 16px;
+    > div {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        padding: 0 11px 0 11px;
+        > div {
+            display: flex;
+            justify-content: center;
+            /*text-align: center;*/
+        }
+        &:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    }
+
+    > .header {
+        font-weight: bold;
+        border-bottom: 1px solid black;
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    .c1, .c2, .c3 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}

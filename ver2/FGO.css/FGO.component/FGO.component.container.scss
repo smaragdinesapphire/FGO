@@ -1,0 +1,45 @@
+﻿.container {
+    margin-bottom: 5px;
+    > .title {
+        cursor: pointer;
+        position: sticky;
+        width: 100%;
+		height: 52px;
+		background: -moz-linear-gradient(top, rgba(255,254,249,1) 0%, rgba(255,254,249,1) 40%, rgba(255,254,249,0.5) 57%, rgba(255,254,249,0.5) 75%, rgba(255,254,249,1) 91%, rgba(255,254,249,1) 100%);
+        background: -webkit-linear-gradient(top, rgba(255,254,249,1) 0%,rgba(255,254,249,1) 40%,rgba(255,254,249,0.5) 57%,rgba(255,254,249,0.5) 75%,rgba(255,254,249,1) 91%,rgba(255,254,249,1) 100%);
+        background: linear-gradient(to bottom, rgba(255,254,249,1) 0%,rgba(255,254,249,1) 40%,rgba(255,254,249,0.5) 57%,rgba(255,254,249,0.5) 75%,rgba(255,254,249,1) 91%,rgba(255,254,249,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffef9', endColorstr='#fffef9',GradientType=0 );
+		border: 2px solid rgb(155, 155, 155);
+        border-radius: 3px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		> div {
+			margin-right: 5px;
+			font-weight: bold;
+            font-size: 24px;
+		}
+        .text {
+            color: #393939;
+        }
+    }
+    > .content_area, .content_area.slideUp {
+        overflow-y: hidden;
+        transition: all .5s linear;
+    }
+    /*> .content_area {
+        max-height: 100vh;
+    }*/
+    > .content_area.slideUp {
+        /*max-height: 0;*/
+        display: none;
+    }
+    .content {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}

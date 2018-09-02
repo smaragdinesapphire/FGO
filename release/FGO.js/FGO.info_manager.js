@@ -364,10 +364,10 @@
     /*
      * 
      */
-    function get_played_result(list) {
+    function get_played_result(list, event) {
         return {
-            item_list: get_played_result_item(list),
-            AP: get_played_result_AP(list)
+            item_list: get_played_result_items(list),
+            AP: get_played_result_AP(list, event)
         };
     }
     /*
