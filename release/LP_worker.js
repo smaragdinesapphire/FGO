@@ -1,4 +1,4 @@
-﻿onmessage = function (e) {
+﻿self.addEventListener('message', function (e) {
     self.isWorker = true;
 
     if (e.data.isWebSite) {
@@ -21,6 +21,7 @@
     }
 
     LP_interface.solve(e.data, function (ans) {
-        postMessage(ans);
+        self.postMessage(ans);
     });
-}
+
+}, false);
