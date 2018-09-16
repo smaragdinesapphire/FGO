@@ -14,7 +14,7 @@
     <script src="release/JIE.js/JIE.io.js"></script>
     <script src="release/FGO.js/FGO.js"></script>
     <script>
-        FGO.isWebSite = false;
+        FGO.isWebSite = (location.href === "https://smaragdinesapphire.github.io/FGO/index_debug.html") || false;
         JIE.isDebug = true;
     </script>
     <script src="release/FGO.js/FGO.info_manager.js"></script>
