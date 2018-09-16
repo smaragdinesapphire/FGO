@@ -373,7 +373,8 @@ FGO.info_creater = function () {
         FGO.info_manager.set_item_list(item_list);
     }
     function str2arr(str) {
-        let tmp = str.split("\r\n");
+        let reg = /\r/.test(str) ? "\r\n" : "\n";
+        let tmp = str.split(reg);
         let arr = [];
         for (let i in tmp) {
             arr.push(tmp[i].split('\t'));
