@@ -141,5 +141,10 @@
 };
 
 window.onload = function () {
-    main();
+    FGO.info_creater()
+    .then(main)
+    .catch(() => {
+        alert("Sorry, loading data failed.");
+    });
+    
 };

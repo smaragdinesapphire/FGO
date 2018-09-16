@@ -1,0 +1,306 @@
+﻿修練場（月）	修炼场（周一）	修煉場（週一）	Traing Ground (Monday)	
+弓超級	弓超级	弓超級	"Archer, Novice"	
+弓上級	弓上级	弓上級	"Archer, Intermediate"	
+弓中級	弓中级	弓中級	"Archer, Advanced"	
+弓初級	弓初级	弓初級	"Archer, Expert"	
+修練場（火）	修炼场（周二）	修煉場（週二）	Traing Ground (Tuesday)	
+槍超級	枪超级	槍超級	"Lancer, Novice"	
+槍上級	枪上级	槍上級	"Lancer, Intermediate"	
+槍中級	枪中级	槍中級	"Lancer, Advanced"	
+槍初級	枪初级	槍初級	"Lancer, Expert"	
+修練場（水）	修炼场（周三）	修煉場（週三）	Traing Ground (Wednesday)	
+狂超級	狂超级	狂超級	"Berserker, Novice"	
+狂上級	狂上级	狂上級	"Berserker, Intermediate"	
+狂中級	狂中级	狂中級	"Berserker, Advanced"	
+狂初級	狂初级	狂初級	"Berserker, Expert"	
+修練場（木）	修炼场（周四）	修煉場（週四）	Traing Ground (Thursday)	
+騎超級	骑超级	騎超級	"Rider, Novice"	
+騎上級	骑上级	騎上級	"Rider, Intermediate"	
+騎中級	骑中级	騎中級	"Rider, Advanced"	
+騎初級	骑初级	騎初級	"Rider, Expert"	
+修練場（金）	修炼场（周五）	修煉場（週五）	Traing Ground (Friday)	
+術超級	术超级	術超級	"Caster, Novice"	
+術上級	术上级	術上級	"Caster, Intermediate"	
+術中級	术中级	術中級	"Caster, Advanced"	
+術初級	术初级	術初級	"Caster, Expert"	
+修練場（土）	修炼场（周六）	修煉場（週六）	Traing Ground (Saturday)	
+殺超級	杀超级	殺超級	"Assasin, Novice"	
+殺上級	杀上级	殺上級	"Assasin, Intermediate"	
+殺中級	杀中级	殺中級	"Assasin, Advanced"	
+殺初級	杀初级	殺初級	"Assasin, Expert"	
+修練場（日）	修炼场（周日）	修煉場（周日）	Traing Ground (Sunday)	
+剣超級	剑超级	劍超級	"Saber, Novice"	
+剣上級	剑上级	劍上級	"Saber, Intermediate"	
+剣中級	剑中级	劍中級	"Saber, Advanced"	
+剣初級	剑初级	劍初級	"Saber, Expert"	
+冬木	冬木	冬木	Fuyuki	
+X-A（屋敷跡）	X-A（宅邸残迹）	X-A（宅邸殘跡）	X-A (The Residential Ruin)	
+X-B（爆心地）	X-B（爆炸中心地）	X-B（爆炸中心地）	X-B (Ground Zero)	
+X-C（大橋）	X-C（大桥）	X-C（大橋）	X-C (Giant Bridge)	
+X-D（港）	X-D（鲜红港口）	X-D（鮮紅港口）	X-D (Blood Soaken Port)	
+X-E（教会）	X-E（骸骨彷徨的教会）	X-E（骸骨彷徨的教會）	X-E (Church of Wandering Corpses)	
+X-F（校舎）	X-F（烧尽崩塌的校舍）	X-F（燒盡崩塌的校舍）	X-F (Burnt-Down Schoolhouse)	
+X-G（燃え盛る森）	X-G（熊熊燃烧的森林）	X-G（熊熊燃燒的森林）	X-G (Burning Forest)	
+変動座標点0号（大空洞）	变动坐标点0号（大空洞）	變動座標點0號（大空洞）	Mobile Coordinate No.0 (Massive Cavern)	
+オルレアン	奥尔良	奧爾良	Orleans	
+ドンレミ	栋雷米	棟雷米	Domremy	
+ヴォークルール	沃库勒尔	沃庫勒爾	Vaucouleurs	
+ラ・シャリテ	拉沙里泰	拉沙裡泰	La Charite	
+ジュラ	汝拉	汝拉	Jura	
+リヨン	里昂	里昂	Lyon	
+マルセイユ	马赛	馬賽	Marseilles	
+ティエール	蒂耶尔	蒂耶爾	Thiers	
+ボルドー	波尔多	波爾多	Bordeaux	
+オルレアン	奥尔良	奧爾良	Orleans	
+パリ	巴黎	巴黎	Paris	
+セプテム	七丘之城	七丘之城	Septem	
+アッビア街道	亚壁街道	亞壁街道	Appia Road	
+ローマ	罗马	羅馬	Rome	
+エトナ火山	埃特纳火山	埃特納火山	Mt. Etna	
+フロレンティア	佛罗伦萨	佛羅倫斯	Florence	
+メディオラヌム	梅迪奥兰	梅迪奧蘭	Mediolanum	
+ゲルマニア	日耳曼尼亚	日爾曼尼亞	Germania	
+マッシリア	玛西格利亚	瑪西格利亞	Massilia	
+ガリア	高卢	高盧	Gaul	
+ブリタニア	不列颠尼亚	不列顛尼亞	Britannia	
+形ある島	有形之岛	有形之島	Shaped Isle	
+連合首都	联军首都	聯軍首都	Alliance Capital	
+オケアノス	俄刻阿诺斯	俄刻阿諾斯	Okeanos	
+海賊船	海盗船	海盜船	Pirate Ship	
+海賊島	海盗岛	海盜島	Pirate Island	
+王の住まう島	王者的居岛	王者的居島	King's Abode Island	
+地図に記された島	地图上标记的岛	地圖上標記的島	Mapped Island	
+暗礁海域	暗礁海域	暗礁海域	Sunken Rock Seas	
+潮目の海	潮眼之海	潮眼之海	Two-Current Sea	
+翼竜の島	翼龙之岛	翼龍之島	Island of Wyverns	
+カルデラの島	火山臼之岛	火山臼之島	Caldera Island	
+嵐の海域	暴风雨海域	暴風雨海域	Stormy Seas	
+群島（静かな入り江）	群岛（寂静的入海口）	群島（寂靜的入海口）	Archipelago (Quiet Bay)	
+群島（隠された島）	群岛（隐秘之岛）	群島（隱秘之島）	Archipelago (Hidden Island)	
+豊かな海	丰硕之海	豐碩之海	Bountiful Sea	
+ロンドン	伦敦	倫敦	London	
+オールドストリート	旧街	舊街	Old Street	
+ホワイトチャペル	白色教堂	白色教堂	White Chapel	
+シティ・オブ・ロンドン	伦敦城	倫敦城	City of London	
+ソーホー	苏活区	蘇活區	Soho	
+ウェストミンスター	威斯敏斯特	威斯敏斯特	Westminster	
+リージェントパーク	摄政公园	攝政公園	Regent Park	
+クラーケンウェル	克勒肯维尔	克勒肯維爾	Clerkenwell	
+サザーク	萨瑟克	薩瑟克	Southwark	
+ハイドパーク	海德公园	海德公園	Hyde Park	
+北米	合众为一	合眾為一	America	
+ブラックヒルズ	布拉克山	布拉克山	Black Hills	
+リバートン	里弗顿	里弗敦	Riverton	
+デンバー	丹佛	丹佛	Denver	
+デミング	德明	德明	Deming	
+ダラス	达拉斯	達拉斯	Dallas	
+アルカトラズ	阿尔卡特拉斯岛	阿爾卡特拉斯島	Alcatraz	
+デモイン	得梅因	得梅因	Des Moines	
+モントゴメリー	蒙哥马利	蒙哥馬利	Montgomery	
+ラボック	拉伯克	拉伯克	Lubbock	
+アレクサンドリア	亚历山德里亚	亞歷山德里亞	Alexandria	
+カーニー	卡尼	卡尼	Kearney	
+シャーロット	夏洛特	夏洛特	Charlotte	
+ワシントン	华盛顿	華盛頓	Washington	
+シカゴ	芝加哥	芝加哥	Chicago	
+キャメロット	卡美洛	卡美洛	Camelot	
+砂嵐の砂漠	沙尘暴的沙漠	沙塵暴的沙漠	Desert Sandstorm	
+明けの砂丘	黎明的沙丘	黎明的沙丘	Dune of Dawn	
+死の荒野	死之荒野	死之荒野	Wastelands of Death	
+東の村	东之村	東之村	East Village	
+円卓の砦	圆桌要塞	圓桌要塞	Fortress of the Round Table	
+晩鐘廟	晚钟庙	晚鐘廟	Evening Bell Mausoleum	
+西の村跡	西之村遗迹	西之村遺跡	West Village Ruins	
+アトラス院	阿特拉斯院	阿特拉斯院	Atlas Academy	
+聖都正門	圣都正门	聖都正門	Holy City Main Gates	
+聖都市街	圣都市街	聖都市街	Holy City District	
+隠れ村	隐秘之村	隱秘之村	Hidden Village	
+王城	王城	王城	Royal Castle	
+無の大地	无之大地	無之大地	Vast Land of Emptiness	
+大神殿	大神殿	大神殿	Great Temple	
+バビロニア	巴比伦尼亚	巴比倫尼亞	Badylonia	
+廃都バビロン	废都巴比伦	廢都巴比倫	Abandoned City Babylon	
+北の高台	北之高台	北之高臺	Northern Hill	
+黒い杉の森	黑色杉木林	黑色杉木林	Black Cedar Forest	
+高原	高原	高原	Plateau	
+湿原	湿地	濕地	Marshland	
+ウル	乌尔	烏爾	Ur	
+エリドゥ	埃里都	埃裡都	Eridu	
+観測所	观测所	觀測所	Observatory	
+葦の原	芦苇原	蘆葦原	Reed Fields	
+クタ	库撒	庫撒	Cuthah	
+北壁	北壁	北壁	North Wall	
+ニップル	尼普尔	尼普爾	Nippur	
+エビフ山	艾比夫山	艾比夫山	Mount Ebih	
+鮮血神殿	鲜血神殿	鮮血神殿	Temple of Fresh Blood	
+新宿	新宿	新宿	Shinjuku	
+代々木二丁目	代代木二丁目	代代木二丁目	Yoyogi 2-Choume	
+国道20号	国道20号	國道20號	National Highway 20	
+新宿駅	新宿站	新宿站	Shinjuku Station	
+新宿四丁目	新宿四丁目	新宿四丁目	Shinjuku 4-Choume	
+歌舞伎町	歌舞伎町	歌舞伎町	Kabukicho	
+バレルタワー	枪身塔	槍身塔	Barrel Tower	
+パーティ会場	舞会会场	舞會會場	Party Venue	
+タワー最上階	塔顶楼	塔頂樓	Tower Top Floor	
+新宿御苑	新宿御苑	新宿御苑	Shinjuku Imperial Garden	
+新宿二丁目	新宿二丁目	新宿二丁目	Shinjuku 2-Choume	
+アガルタ			Agartha	
+地底平原			Subterranean Plain	
+野営地			Campsite	
+川辺の町			Riverside Town	
+桃源郷			Peach Blossom Village	
+イース			Ys	
+北の断崖			Northern Cliff	
+不夜城			Fuyajo	
+山裾の密林			Jungle at the Foothills	
+竜宮城			Dragon Imperial Palace	
+地底大河			Subterranean River	
+エルドラド			El Dorado	
+大地の裂け目			Fissure of the Land	
+下総国			Shimousa	
+田んぼ			Farm	
+里			Village	
+庵			Hermitage	
+城下町			Castle Town	
+合戦場			Battlefield	
+土気城			Toke Castle	
+裏山			Mountain Behind	
+荒川の原			Arakawa Plains	
+セイレム			Salem	
+静寂な森			Silent Forest	
+カーター家			Carter Residence	
+公会堂			Public Chapel	
+波止場			Wharf	
+ウェイトリー家			Whateley Residence	
+郊外の屋敷			Suburban Mansion	
+ガローの丘			Gallows Hill	
+牧草地			Grassland	
+空き家			Empty Residence	
+隠れ家			Refuge	
+留置所			Jailhouse	
+アナスタシア			Anastasia	
+アンカーポイント			Anchor Point	
+ヤガ・スモレンスク			Yaga Smolensk	
+風穴氷窟			Ice Cavern	
+叛逆軍の砦			Rebel Stronghold	
+ヤガ・スィチョーフカ			Yaga Sychyovka	
+焼き払われた村			Burnt-Down Village	
+ヤガ・ヴァジマ			Yaga Vyazma	
+ヤガ・ジェメンスク			Yaga Demensk	
+ヤガ・トゥーラ			Yaga Tula	
+潰れた村			Destroyed Village	
+ヤガ・モスクワ			Yaga Moskva	
+大渓谷の砦			Great Valley Fortress	
+大樹の根元			Giant Tree Base	
+ヤガ・リャザン			Yaga Ryazan	
+ゲッテルデメルング			Goetterdaemmerung	
+ランディングポイント			Landing Point	
+薄氷の丘			Hill of Thin Ice	
+巨人の花園			Flower Garden of Giants	
+第23集落			23rd Settlement	
+英雄の穴倉			Cave of Heroes	
+雪と氷の城			Fortress of Ice and Snow	
+果てへと至る道			Path Towards the Border	
+炎の館			Castle of Flames	
+第67集落			67th Settlement	
+北の境界			North Boundary	
+忘れられた神殿			Forgotten Temple	
+銅素材	铜素材	銅素材	Bronze Material	
+英雄の証	英雄之证	英雄之證	Proof of Hero	
+凶骨	凶骨	兇骨	Evil Bone	
+竜の牙	龙牙	龍之牙	Dragon Fang	
+虚影の塵	虚影之尘	虛影之塵	Void's Dust	
+愚者の鎖	愚者之锁	愚者之鎖	Chain of Fools	
+万死の毒針	万死的毒针	萬死的毒針	Deadly Poison Stinger	
+魔術髄液			Magic Cerebrospinal Fluid	
+宵哭きの鉄杭			Iron Stake of Evening Tears	
+励振火薬			Reactive Gunpowder	
+銀素材	银素材	銀素材	Silver Material	
+世界樹の種	世界树之种	世界樹之種	Seed of Yggdrassil	
+ゴーストランタン	幽灵鬼灯	鬼魂提燈	Ghost Lantern	
+八連双晶	八连双晶	八連雙晶	Octuplet Crystals	
+蛇の宝玉	蛇之宝玉	蛇之寶玉	Serpent Jewel	
+鳳凰の羽根	凤凰羽毛	鳳凰羽毛	Phoenix Feather	
+無間の歯車	无间齿轮	無間齒輪	Eternal Gear	
+禁断の頁	禁断书页	禁斷書頁	Forbidden Page	
+ホムンクルスベビー	血瓶	人工生命體幼體	Homunculus Baby	
+隕蹄鉄	陨蹄铁	隕蹄鐵	Meteor Horseshoe	
+大騎士勲章	大骑士勋章	大騎士勳章	Great Knight Medal	
+追憶の貝殻	追忆的贝壳	追憶的貝殼	Shell of Recollection	
+枯淡勾玉			Kotan Magatama	
+永遠結氷			Eternal Frost	
+巨人の指輪			Ring of Giants	
+オーロラ鋼			Aurora Steel	
+金素材	金素材	金素材	Gold Material	
+混沌の爪	混沌之爪	混沌之爪	Claw of Chaos	
+蛮神の心臓	蛮神的心脏	蠻神心臟	Heart of the Foreign God	
+竜の逆鱗	龙之逆鳞	龍之逆鱗	Dragon's Reverse Scale	
+精霊根	精灵根	精靈根	Spirit Root	
+戦馬の幼角	战马的幼角	戰馬的幼角	Warhorse's Young Horn	
+血の涙石	血泪之石	血之淚石	Tearstone of Blood	
+黒獣脂	黑兽脂	黑獸脂	Black Beast Grease	
+封魔のランプ	封魔之灯	封魔之燈	Lamp of Sealed Evil	
+智慧のスカラベ	智慧的甲壳虫雕像	智慧之聖甲蟲像	Scarab of Wisdom	
+原初の産毛	起源的胎毛	起源的胎毛	Primordial Lanugo	
+呪獣胆石	咒兽的胆石	咒獸膽石	Cursed Beast Gallstone	
+奇奇神酒			Chichi Divine Wine	
+輝石	辉石	輝石	Gem	
+剣の輝石	剑辉石	劍之輝石	Gem of Saber	
+弓の輝石	弓辉石	弓之輝石	Gem of Archer	
+槍の輝石	枪辉石	槍之輝石	Gem of Lancer	
+騎の輝石	骑辉石	騎之輝石	Gem of Rider	
+術の輝石	术辉石	術之輝石	Gem of Caster	
+殺の輝石	杀辉石	殺之輝石	Gem of Assassin	
+狂の輝石	狂辉石	狂之輝石	Gem of Berserker	
+魔石	魔石	魔石	Magic	
+剣の魔石	剑魔石	劍之魔石	Magic of Saber	
+弓の魔石	弓魔石	弓之魔石	Magic of Archer	
+槍の魔石	枪魔石	槍之魔石	Magic of Lancer	
+騎の魔石	骑魔石	騎之魔石	Magic of Rider	
+術の魔石	术魔石	術之魔石	Magic of Caster	
+殺の魔石	杀魔石	殺之魔石	Magic of Assassin	
+狂の魔石	狂魔石	狂之魔石	Magic of Berserker	
+秘石	秘石	秘石	Secret	
+剣の秘石	剑秘石	劍之秘石	Secret of Saber	
+弓の秘石	弓秘石	弓之秘石	Secret of Archer	
+槍の秘石	枪秘石	槍之秘石	Secret of Lancer	
+騎の秘石	骑秘石	騎之秘石	Secret of Rider	
+術の秘石	术秘石	術之秘石	Secret of Caster	
+殺の秘石	杀秘石	殺之秘石	Secret of Assassin	
+狂の秘石	狂秘石	狂之秘石	Secret of Berserker	
+ピース	银棋	銀棋	Piece	
+セイバーピース	银剑棋	劍階銀棋	Saber Piece	
+アーチャーピース	银弓棋	弓階銀棋	Archer Piece	
+ランサーピース	银枪棋	槍階銀棋	Lancer Piece	
+ライダーピース	银骑棋	騎階銀棋	Rider Piece	
+キャスターピース	银术棋	術階銀棋	Caster Piece	
+アサシンピース	银杀棋	殺階銀棋	Assassin Piece	
+バーサーカーピース	银狂棋	狂階銀棋	Berserker Piece	
+モニュ	金棋	金棋	Monument	
+セイバーモニュメント	金剑棋	劍階金像	Saber Monument	
+アーチャーモニュメント	金弓棋	弓階金像	Archer Monument	
+ランサーモニュメント	金枪棋	槍階金像	Lancer Monument	
+ライダーモニュメント	金骑棋	騎階金像	Rider Monument	
+キャスターモニュメント	金术棋	術階金像	Caster Monument	
+アサシンモニュメント	金杀棋	殺階金像	Assassin Monument	
+バーサーカーモニュメント	金狂棋	狂階金像	Berserker Monument	
+セーブ	存档	存檔	Save	
+ロード	读档	讀檔	Load	
+計算	计算	計算	Calculate	
+イベント	活动	活動	Event	
+進行度	进度	進度	Stage	
+曜日クエスト	每日任务	每日任務	Summary	
+フリークエスト	自由任务	自由任務	Free Quest	
+コンフィグ	使用者设定	使用者設定	User Setting	
+結果	结果	結果	Result	
+エリア	区域	區域	Stage	
+クエスト	关卡	關卡	Quest	
+ドロップ率	掉率	掉落率	Drop Rate	
+ドロップ率 / AP	掉率 / AP	掉落率 / AP	Drop Rate / AP	
+アイテム	物品	物品	Item	
+数量	数量	數量	Count	
+言語	语言	語言	Language	
+ただいま計算中	计算中	計算中	Calculating	
+タイムズ	次数	次數	Times	
+リセット	重置	重置	Reset	
+イベント(消費AP 50%DOWN)	活动(AP減半)	活動(AP減半)	Event(AP COSTS 50% OFF)	

@@ -2029,7 +2029,7 @@
     FGO.info_manager.set_quest_info(quest_info);
     FGO.info_manager.set_item_list(item_list);
     //FGO.quest_manager.set_event_list(event_list);
-
+    
     var language_data = {
         "修練場（月）": {
             "CN": "修炼场（周一）",

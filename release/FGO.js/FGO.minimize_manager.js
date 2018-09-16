@@ -40,11 +40,11 @@ FGO.minimize_manager = (function () {
         };
     }
     else {
-        var PSO = new Worker('/release/FGO.js/FGO.PSO.js?' + FGO.ver);
+        var PSO = new Worker('release/FGO.js/FGO.PSO.js?' + FGO.ver);
         PSO.onmessage = function (e) {
             check_PSO_team_finish(e.data);
         };
-        var LP_worker = new Worker("/release/LP_worker.js?" + FGO.ver);
+        var LP_worker = new Worker("release/LP_worker.js?" + FGO.ver);
         LP_worker.onmessage = function (e) {
             check_LP_team_finish(e.data);
         };
